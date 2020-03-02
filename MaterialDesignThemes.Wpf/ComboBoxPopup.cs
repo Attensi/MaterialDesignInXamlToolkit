@@ -173,7 +173,6 @@ namespace MaterialDesignThemes.Wpf
         public ComboBoxPopup()
         {
             CustomPopupPlacementCallback = ComboBoxCustomPopupPlacementCallback;
-            
         }
 
         protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)

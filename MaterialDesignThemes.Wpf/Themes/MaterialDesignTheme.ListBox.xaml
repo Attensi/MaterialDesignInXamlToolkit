@@ -208,9 +208,9 @@
         <Setter Property="Padding" Value="8"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="wpf:RippleAssist.Feedback" Value="{Binding Foreground, RelativeSource={RelativeSource Self}, Converter={StaticResource BrushRoundConverter}}" />
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
@@ -379,7 +379,7 @@
                                 Grid.ColumnSpan="2"
                                 Grid.Column="0"
                                 Background="{TemplateBinding Foreground, Converter={StaticResource BrushRoundConverter}}" />
-                        <wpf:PackIcon x:Name="IconControl" 
+                        <iconPacks:PackIconMaterial x:Name="IconControl" 
                                       Kind="Check"
                                       Width="16"
                                       Height="16"
@@ -515,7 +515,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBox}">
                     <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type wpf:PackIcon}" >
+                        <Style TargetType="{x:Type iconPacks:PackIconMaterial}" >
                             <Setter Property="Width" Value="22" />
                             <Setter Property="Height" Value="22" />
                         </Style>
