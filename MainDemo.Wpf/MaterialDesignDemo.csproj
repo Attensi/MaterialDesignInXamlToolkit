@@ -7,11 +7,11 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AvalonEdit" Version="6.0.0" />
-    <PackageReference Include="MaterialDesignColors" Version="1.2.1-ci715" />
-    <PackageReference Include="ShowMeTheXAML" Version="1.1.0-ci71" />
-    <PackageReference Include="ShowMeTheXAML.AvalonEdit" Version="1.1.0-ci71" />
-    <PackageReference Include="ShowMeTheXAML.MSBuild" Version="1.1.0-ci71" />
+    <PackageReference Include="AvalonEdit" Version="6.0.1" />
+    <PackageReference Include="MaterialDesignColors" Version="1.2.2" />
+    <PackageReference Include="ShowMeTheXAML" Version="1.1.0-ci73" />
+    <PackageReference Include="ShowMeTheXAML.AvalonEdit" Version="1.1.0-ci73" />
+    <PackageReference Include="ShowMeTheXAML.MSBuild" Version="1.1.0-ci73" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj" />
