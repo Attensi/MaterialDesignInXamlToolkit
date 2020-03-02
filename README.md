@@ -1,4 +1,4 @@
-# ![Alt text](web/images/MD4XAML64.png "Material Design In XAML Toolkit") Material Design In XAML Toolkit
+﻿# ![Alt text](web/images/MD4XAML64.png "Material Design In XAML Toolkit") Material Design In XAML Toolkit
 
 Comprehensive and easy to use Material Design theme and control library for the Windows desktop.
 
