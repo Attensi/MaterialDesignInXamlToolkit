@@ -170,6 +170,45 @@ namespace MaterialDesignThemes.Wpf
 
         #endregion
 
+        public static readonly DependencyProperty CornerRadiusProperty
+            = DependencyProperty.Register(
+                nameof(CornerRadius),
+                typeof(CornerRadius),
+                typeof(ComboBoxPopup),
+                new FrameworkPropertyMetadata(default(CornerRadius)));
+
+        public CornerRadius CornerRadius
+        {
+            get { return (CornerRadius)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
+        }
+
+        public static readonly DependencyProperty ContentMarginProperty
+            = DependencyProperty.Register(
+                nameof(ContentMargin),
+                typeof(Thickness),
+                typeof(ComboBoxPopup),
+                new FrameworkPropertyMetadata(default(Thickness)));
+
+        public Thickness ContentMargin
+        {
+            get { return (Thickness)GetValue(ContentMarginProperty); }
+            set { SetValue(ContentMarginProperty, value); }
+        }
+
+        public static readonly DependencyProperty ContentMinWidthProperty
+            = DependencyProperty.Register(
+                nameof(ContentMinWidth),
+                typeof(double),
+                typeof(ComboBoxPopup),
+                new FrameworkPropertyMetadata(default(double)));
+
+        public double ContentMinWidth
+        {
+            get { return (double)GetValue(ContentMinWidthProperty); }
+            set { SetValue(ContentMinWidthProperty, value); }
+        }
+
         public ComboBoxPopup()
         {
             CustomPopupPlacementCallback = ComboBoxCustomPopupPlacementCallback;
@@ -240,8 +279,8 @@ namespace MaterialDesignThemes.Wpf
             if (mainVisual == null) throw new ArgumentException($"{nameof(visualAncestry)} must contains unless one {nameof(Visual)} control inside.");
 
             var screen = Screen.FromPoint(locationFromScreen);
-            var screenWidth = (int)DpiHelper.TransformToDeviceX(mainVisual, (int)screen.Bounds.Width);
-            var screenHeight = (int)DpiHelper.TransformToDeviceY(mainVisual, (int)screen.Bounds.Height);
+            var screenWidth = (int)screen.Bounds.Width;
+            var screenHeight = (int)screen.Bounds.Height;
             
             //Adjust the location to be in terms of the current screen
             var locationX = (int)(locationFromScreen.X - screen.Bounds.X) % screenWidth;
