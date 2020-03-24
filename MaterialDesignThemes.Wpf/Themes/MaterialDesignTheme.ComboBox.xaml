@@ -808,7 +808,7 @@
                                     <Binding Path="(wpf:TextFieldAssist.HasClearButton)" RelativeSource="{RelativeSource TemplatedParent}"/>
                                 </MultiBinding>
                             </Button.Visibility>
-                            <wpf:PackIcon Margin="0" Kind="CloseCircle" />
+                            <iconPacks:PackIconMaterial Margin="0" Kind="CloseCircle" />
                         </Button>
                     </StackPanel>
                 </Grid>

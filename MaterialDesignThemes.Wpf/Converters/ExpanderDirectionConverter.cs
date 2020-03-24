@@ -10,26 +10,40 @@ namespace MaterialDesignThemes.Wpf.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is ExpandDirection direction &&
-                targetType is { } &&
-                parameter is string values &&
-                values.Split(',') is { } directionValues &&
-                directionValues.Length == 4)
+            if (value is ExpandDirection direction
+                && targetType != null
+                && parameter is string values)
             {
-                int index = direction switch
+                var directionValues = values.Split(',');
+                if (directionValues.Length == 4)
                 {
-                    ExpandDirection.Left => 0,
-                    ExpandDirection.Up => 1,
-                    ExpandDirection.Right => 2,
-                    ExpandDirection.Down => 3,
-                    _ => throw new InvalidOperationException()
-                };
-                var converter = TypeDescriptor.GetConverter(targetType);
+                    int index;
+                    switch (direction)
+                    {
+                        case ExpandDirection.Down:
+                            index = 3;
+                            break;
+                        case ExpandDirection.Up:
+                            index = 1;
+                            break;
+                        case ExpandDirection.Left:
+                            index = 0;
+                            break;
+                        case ExpandDirection.Right:
+                            index = 2;
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
 
-                return converter.CanConvertFrom(typeof(string)) ?
-                       converter.ConvertFromInvariantString(directionValues[index]) :
-                       directionValues[index];
+                    var converter = TypeDescriptor.GetConverter(targetType);
+
+                    return converter.CanConvertFrom(typeof(string))
+                        ? converter.ConvertFromInvariantString(directionValues[index])
+                        : directionValues[index];
+                }
             }
+
             return Binding.DoNothing;
         }
 
