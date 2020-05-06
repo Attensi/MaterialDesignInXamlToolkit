@@ -51,7 +51,8 @@ namespace MaterialDesignColors.WpfExample
 
         private async void MenuPopupButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var sampleMessageDialog = new SampleMessageDialog {
+            var sampleMessageDialog = new SampleMessageDialog
+            {
                 Message = { Text = ((ButtonBase)sender).Content.ToString() }
             };
 
@@ -76,6 +77,21 @@ namespace MaterialDesignColors.WpfExample
         private void MenuToggleButton_OnClick(object sender, RoutedEventArgs e)
         {
             DemoItemsSearchBox.Focus();
+        }
+
+        private void MenuDarkModeButton_Click(object sender, RoutedEventArgs e)
+        {
+            ModifyTheme(theme => theme.SetBaseTheme(DarkModeToggleButton.IsChecked == true ? Theme.Dark : Theme.Light));
+        }
+
+        private static void ModifyTheme(Action<ITheme> modificationAction)
+        {
+            PaletteHelper paletteHelper = new PaletteHelper();
+            ITheme theme = paletteHelper.GetTheme();
+
+            modificationAction?.Invoke(theme);
+
+            paletteHelper.SetTheme(theme);
         }
     }
 }

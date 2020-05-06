@@ -7,6 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
     <converters:TextFieldHintVisibilityConverter x:Key="TextFieldHintVisibilityConverter" />
     <converters:MathConverter Operation="Divide" x:Key="DivisionMathConverter" />
+    <converters:BottomThicknessConverter x:Key="BottomThicknessConverter" />
 
     <Style x:Key="MaterialDesignTimePicker" TargetType="{x:Type wpf:TimePicker}">
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -94,7 +95,9 @@
                                 Background="{TemplateBinding Background}"
                                 x:Name="border"
                                 Padding="0 4 0 4"
-                                SnapsToDevicePixels="True">
+                                SnapsToDevicePixels="True"
+                                wpf:BottomDashedLineAdorner.Brush="{TemplateBinding BorderBrush}"
+                                wpf:BottomDashedLineAdorner.Thickness="{TemplateBinding BorderThickness}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -121,22 +124,12 @@
                                        PopupAnimation="Fade"/>
                             </Grid>
                         </Border>
-                        <Path x:Name="DashedLine"
-                              VerticalAlignment="Bottom"
-                              Visibility="Collapsed"
-                              Stretch="Fill"
-                              Data="M 0,0 L 1,0"
-                              StrokeThickness="{Binding BorderThickness.Bottom, ElementName=border, Converter={StaticResource DivisionMathConverter}, ConverterParameter=0.75}"
-                              StrokeDashArray="1,2.5"
-                              StrokeDashCap="Round"
-                              Stroke="{TemplateBinding BorderBrush}"
-                              Opacity="0.56" />
                         <wpf:Underline x:Name="Underline" Visibility="{Binding Path=(wpf:TextFieldAssist.DecorationVisibility), RelativeSource={RelativeSource TemplatedParent}}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" TargetName="TemplateRoot" Value="0.56"/>
-                            <Setter Property="Visibility" TargetName="DashedLine"  Value="Visible" />
+                            <Setter Property="wpf:BottomDashedLineAdorner.IsAttached" TargetName="border" Value="True" />
                             <Setter Property="BorderBrush" TargetName="border" Value="Transparent"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">

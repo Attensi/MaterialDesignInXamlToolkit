@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using MaterialDesignDemo.Domain;
 
 namespace MaterialDesignColors.WpfExample.Domain
 {
@@ -45,7 +46,7 @@ namespace MaterialDesignColors.WpfExample.Domain
             {
                 this.MutateVerbose(ref _selectedValueOne, value, RaisePropertyChanged());
             }
-        }        
+        }
 
         public string SelectedTextTwo
         {

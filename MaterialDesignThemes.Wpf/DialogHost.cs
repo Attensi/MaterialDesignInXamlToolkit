@@ -68,16 +68,14 @@ namespace MaterialDesignThemes.Wpf
         private DialogOpenedEventHandler _attachedDialogOpenedEventHandler;
         private DialogClosingEventHandler _attachedDialogClosingEventHandler;
         private IInputElement _restoreFocusDialogClose;
-        private IInputElement _restoreFocusWindowReactivation;
         private Action _currentSnackbarMessageQueueUnPauseAction;
-        private Action _closeCleanUp = () => { };
 
         static DialogHost()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(DialogHost), new FrameworkPropertyMetadata(typeof(DialogHost)));
         }
 
-        #region .Show overloads
+        #region Show overloads
 
         /// <summary>
         /// Shows a modal dialog. To use, a <see cref="DialogHost"/> instance must be in a visual tree (typically this may be specified towards the root of a Window's XAML).
@@ -188,7 +186,7 @@ namespace MaterialDesignThemes.Wpf
             if (IsOpen)
                 throw new InvalidOperationException("DialogHost is already open.");
 
-            
+
             _dialogTaskCompletionSource = new TaskCompletionSource<object>();
 
             AssertTargetableContent();
@@ -196,7 +194,7 @@ namespace MaterialDesignThemes.Wpf
             _asyncShowOpenedEventHandler = openedEventHandler;
             _asyncShowClosingEventHandler = closingEventHandler;
             SetCurrentValue(IsOpenProperty, true);
-            
+
             object result = await _dialogTaskCompletionSource.Task;
 
             _asyncShowOpenedEventHandler = null;
@@ -241,7 +239,6 @@ namespace MaterialDesignThemes.Wpf
 
             if (dialogHost.IsOpen)
             {
-                WatchWindowActivation(dialogHost);
                 dialogHost._currentSnackbarMessageQueueUnPauseAction = dialogHost.SnackbarMessageQueue?.Pause();
             }
             else
@@ -252,13 +249,12 @@ namespace MaterialDesignThemes.Wpf
                     dialogHost._currentSnackbarMessageQueueUnPauseAction();
                     dialogHost._currentSnackbarMessageQueueUnPauseAction = null;
                 }
+
+                var closeParameter = dialogHost.CurrentSession.CloseParameter;
                 dialogHost.CurrentSession.IsEnded = true;
                 dialogHost.CurrentSession = null;
-                dialogHost._closeCleanUp();
                 //NB: _dialogTaskCompletionSource is only set in the case where the dialog is shown with Show
-                //To get into this case you need to display the dialog with Show and then hide it by setting IsOpen to false
-                //Setting this here ensures the other 
-                dialogHost._dialogTaskCompletionSource?.TrySetResult(null);
+                dialogHost._dialogTaskCompletionSource?.TrySetResult(closeParameter);
 
                 // Don't attempt to Invoke if _restoreFocusDialogClose hasn't been assigned yet. Can occur
                 // if the MainWindow has started up minimized. Even when Show() has been called, this doesn't
@@ -267,7 +263,7 @@ namespace MaterialDesignThemes.Wpf
 
                 return;
             }
-            
+
             dialogHost.CurrentSession = new DialogSession(dialogHost);
             var window = Window.GetWindow(dialogHost);
             dialogHost._restoreFocusDialogClose = window != null ? FocusManager.GetFocusedElement(window) : null;
@@ -570,8 +566,9 @@ namespace MaterialDesignThemes.Wpf
 
         internal void Close(object parameter)
         {
-            var dialogClosingEventArgs = new DialogClosingEventArgs(CurrentSession, parameter, DialogClosingEvent);
+            var dialogClosingEventArgs = new DialogClosingEventArgs(CurrentSession, DialogClosingEvent);
 
+            CurrentSession.CloseParameter = parameter;
             CurrentSession.IsEnded = true;
 
             //multiple ways of calling back that the dialog is closing:
@@ -584,16 +581,13 @@ namespace MaterialDesignThemes.Wpf
             DialogClosingCallback?.Invoke(this, dialogClosingEventArgs);
             _asyncShowClosingEventHandler?.Invoke(this, dialogClosingEventArgs);
 
-            
-            if (!dialogClosingEventArgs.IsCancelled)
-            {
-                _dialogTaskCompletionSource?.TrySetResult(parameter);
-                SetCurrentValue(IsOpenProperty, false);
-            }
-            else
+            if (dialogClosingEventArgs.IsCancelled)
             {
                 CurrentSession.IsEnded = false;
+                return;
             }
+            
+            SetCurrentValue(IsOpenProperty, false);
         }
 
         /// <summary>
@@ -615,7 +609,7 @@ namespace MaterialDesignThemes.Wpf
 
             return child;
         }
-
+        
         protected override void OnPreviewMouseDown(MouseButtonEventArgs e)
         {
             var window = Window.GetWindow(this);
@@ -700,39 +694,5 @@ namespace MaterialDesignThemes.Wpf
             LoadedInstances.Add(this);
         }
 
-        private static void WatchWindowActivation(DialogHost dialogHost)
-        {
-            var window = Window.GetWindow(dialogHost);
-            if (window != null)
-            {
-                window.Activated += dialogHost.WindowOnActivated;
-                window.Deactivated += dialogHost.WindowOnDeactivated;
-                dialogHost._closeCleanUp = () =>
-                {
-                    window.Activated -= dialogHost.WindowOnActivated;
-                    window.Deactivated -= dialogHost.WindowOnDeactivated;
-                };
-            }
-            else
-            {
-                dialogHost._closeCleanUp = () => { };
-            }
-        }
-
-        private void WindowOnDeactivated(object sender, EventArgs eventArgs)
-        {
-            _restoreFocusWindowReactivation = _popup != null ? FocusManager.GetFocusedElement((Window)sender) : null;
-        }
-
-        private void WindowOnActivated(object sender, EventArgs eventArgs)
-        {
-            if (_restoreFocusWindowReactivation != null)
-            {
-                Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    Keyboard.Focus(_restoreFocusWindowReactivation);
-                }));
-            }
-        }
     }
 }

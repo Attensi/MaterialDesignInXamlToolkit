@@ -27,7 +27,7 @@ namespace MaterialDesignThemes.Wpf
 
         public ColorZoneMode BadgeColorZoneMode
         {
-            get { return (ColorZoneMode) GetValue(BadgeColorZoneModeProperty); }
+            get { return (ColorZoneMode)GetValue(BadgeColorZoneModeProperty); }
             set { SetValue(BadgeColorZoneModeProperty, value); }
         }
 

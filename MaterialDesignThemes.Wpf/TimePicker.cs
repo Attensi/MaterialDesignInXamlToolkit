@@ -32,15 +32,38 @@ namespace MaterialDesignThemes.Wpf
         static TimePicker()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(typeof(TimePicker)));
+            EventManager.RegisterClassHandler(typeof(TimePicker), UIElement.GotFocusEvent, new RoutedEventHandler(OnGotFocus));
+        }
+
+        /// <summary>
+        ///     Called when this element gets focus.
+        /// </summary>
+        private static void OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            // When TimePicker gets focus move it to the TextBox
+            TimePicker picker = (TimePicker)sender;
+            if ((!e.Handled) && (picker._textBox != null))
+            {
+                if (e.OriginalSource == picker)
+                {
+                    picker._textBox.Focus();
+                    e.Handled = true;
+                }
+                else if (e.OriginalSource == picker._textBox)
+                {
+                    picker._textBox.SelectAll();
+                    e.Handled = true;
+                }
+            }
         }
 
         public TimePicker()
         {
-            _clock = new Clock 
+            _clock = new Clock
             {
                 DisplayAutomation = ClockDisplayAutomation.ToMinutesOnly
             };
-            _clockHostContentControl = new ContentControl 
+            _clockHostContentControl = new ContentControl
             {
                 Content = _clock
             };
@@ -109,7 +132,8 @@ namespace MaterialDesignThemes.Wpf
             var instance = (TimePicker)d;
             var args = new RoutedPropertyChangedEventArgs<DateTime?>(
                     (DateTime?)e.OldValue,
-                    (DateTime?)e.NewValue) { RoutedEvent = SelectedTimeChangedEvent };
+                    (DateTime?)e.NewValue)
+            { RoutedEvent = SelectedTimeChangedEvent };
             instance.RaiseEvent(args);
         }
 
@@ -535,7 +559,8 @@ namespace MaterialDesignThemes.Wpf
 
         private BindingBase GetBinding(DependencyProperty property, IValueConverter converter = null)
         {
-            var binding = new Binding(property.Name) {
+            var binding = new Binding(property.Name)
+            {
                 Source = this,
                 Converter = converter
             };

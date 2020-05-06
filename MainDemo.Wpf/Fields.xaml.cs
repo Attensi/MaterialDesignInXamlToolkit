@@ -1,14 +1,13 @@
-﻿using System.Windows.Controls;
-using System.Windows.Navigation;
-using MaterialDesignColors.WpfExample.Domain;
+﻿using MaterialDesignColors.WpfExample.Domain;
 using MaterialDesignDemo.Domain;
+using System.Windows.Navigation;
 
-namespace MaterialDesignColors.WpfExample
+namespace MaterialDesignDemo
 {
     /// <summary>
     /// Interaction logic for TextFields.xaml
     /// </summary>
-    public partial class Fields : UserControl
+    public partial class Fields
     {
         public Fields()
         {
