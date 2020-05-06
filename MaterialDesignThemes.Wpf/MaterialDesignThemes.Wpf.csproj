@@ -19,5 +19,6 @@
   <Import Project="..\Versioning.targets" />
   <ItemGroup>
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.0.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 </Project>
