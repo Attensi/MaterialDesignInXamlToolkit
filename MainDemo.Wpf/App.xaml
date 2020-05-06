@@ -61,7 +61,7 @@
                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                                                          x:Name="PopupBox">
                                     <materialDesign:PopupBox.ToggleContent>
-                                        <iconPacks:PackIconMaterial Kind="Xaml" Cursor="Hand" ToolTip="View XAML" 
+                                        <iconPacks:PackIconMaterial Kind="LanguageXaml" Cursor="Hand" ToolTip="View XAML" 
                                                                  Foreground="{DynamicResource PrimaryHueDarkBrush}" 
                                                                  Background="Transparent" 
                                                                  Margin="3">
@@ -120,5 +120,3 @@
         </ResourceDictionary>
     </Application.Resources>
 </Application>
-
-

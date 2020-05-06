@@ -59,7 +59,7 @@
             <ToolBarTray>
                 <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
                     <Button ToolTip="Follow me on Twitter" Click="TwitterButton_OnClick">
-                        <iconPacks:PackIconMaterial Kind="TwitterBox" />
+                        <iconPacks:PackIconMaterial Kind="Twitter" />
                     </Button>
                     <Button ToolTip="Save">
                         <iconPacks:PackIconMaterial Kind="ContentSave" />
@@ -141,7 +141,7 @@
                         Check
                     </CheckBox>
                     <Button ToolTip="Take a nap" ToolBar.OverflowMode="Always">
-                        <iconPacks:PackIconMaterial Kind="Hotel" />
+                        <iconPacks:PackIconMaterial Kind="Bed" />
                     </Button>
                     <RadioButton GroupName="XXX" Content="Radio" />
                     <RadioButton GroupName="XXX" Content="Ga Ga" />
