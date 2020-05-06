@@ -7,6 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:domain1="clr-namespace:MaterialDesignDemo.Domain"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="600"
              d:DataContext="{d:DesignInstance domain:FieldsViewModel, IsDesignTimeCreatable=False}">
@@ -24,7 +25,7 @@
             <Setter Property="Margin" Value="0 0 8 0" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-        <Style TargetType="{x:Type materialDesign:PackIcon}" BasedOn="{StaticResource {x:Type materialDesign:PackIcon}}">
+        <Style TargetType="{x:Type iconPacks:PackIconMaterial}" BasedOn="{StaticResource {x:Type iconPacks:PackIconMaterial}}">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Margin" Value="4 0 4 0" />
         </Style>
@@ -47,7 +48,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource MaterialDesignHeadline5TextBlock}">Common Fields</TextBlock>
-            <materialDesign:PackIcon Grid.Row="1" Grid.Column="0" Kind="Account" Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}" />
+            <iconPacks:PackIconMaterial Grid.Row="1" Grid.Column="0" Kind="Account" Foreground="{Binding ElementName=NameTextBox, Path=BorderBrush}" />
             <smtx:XamlDisplay Key="fields_1" Grid.Column="1" Grid.Row="1">
                 <TextBox x:Name="NameTextBox"
                          materialDesign:HintAssist.Hint="Name"
@@ -61,11 +62,11 @@
                     </TextBox.Text>
                 </TextBox>
             </smtx:XamlDisplay>
-            <materialDesign:PackIcon Grid.Row="2" Grid.Column="0" Kind="Phone" Foreground="{Binding ElementName=PhoneTextBox, Path=BorderBrush}" />
+            <iconPacks:PackIconMaterial Grid.Row="2" Grid.Column="0" Kind="Phone" Foreground="{Binding ElementName=PhoneTextBox, Path=BorderBrush}" />
             <smtx:XamlDisplay Key="fields_4" Grid.Row="2" Grid.Column="1">
                 <TextBox x:Name="PhoneTextBox" materialDesign:TransitionAssist.DisableTransitions="True" />
             </smtx:XamlDisplay>
-            <materialDesign:PackIcon Grid.Row="3" Grid.Column="0" Kind="Comment" Foreground="{Binding ElementName=CommentTextBox, Path=BorderBrush}" />
+            <iconPacks:PackIconMaterial Grid.Row="3" Grid.Column="0" Kind="Comment" Foreground="{Binding ElementName=CommentTextBox, Path=BorderBrush}" />
             <smtx:XamlDisplay Key="fields_6" Grid.Row="3" Grid.Column="1">
                 <TextBox x:Name="CommentTextBox"
                          materialDesign:HintAssist.Hint="Comment"
@@ -78,13 +79,13 @@
             </smtx:XamlDisplay>
 
 
-            <materialDesign:PackIcon Grid.Row="1" Grid.Column="2" Kind="Key" Foreground="{Binding ElementName=PasswordBox, Path=BorderBrush}" HorizontalAlignment="Right" />
+            <iconPacks:PackIconMaterial Grid.Row="1" Grid.Column="2" Kind="Key" Foreground="{Binding ElementName=PasswordBox, Path=BorderBrush}" HorizontalAlignment="Right" />
             <smtx:XamlDisplay Key="fields_7" Grid.Row="1" Grid.Column="3">
                 <PasswordBox x:Name="PasswordBox" materialDesign:HintAssist.Hint="Password"
                              materialDesign:TextFieldAssist.HasClearButton="True"
                              materialDesign:HintAssist.HelperText="At least 8 characters" />
             </smtx:XamlDisplay>
-            <materialDesign:PackIcon Grid.Row="2" Grid.Column="2" Kind="Key"
+            <iconPacks:PackIconMaterial Grid.Row="2" Grid.Column="2" Kind="Key"
                                      Margin="0 12 0 0"
                                      Foreground="{Binding ElementName=FloatingPasswordBox, Path=BorderBrush}" />
             <smtx:XamlDisplay Key="fields_18" Grid.Row="2" Grid.Column="3" Margin="0 12 0 0">
@@ -157,7 +158,7 @@
                          materialDesign:TextFieldAssist.SuffixText="mm">
                     <materialDesign:HintAssist.Hint>
                         <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
-                            <materialDesign:PackIcon Kind="AccessPoint" />
+                            <iconPacks:PackIconMaterial Kind="AccessPoint" />
                             <TextBlock>WiFi</TextBlock>
                         </StackPanel>
                     </materialDesign:HintAssist.Hint>

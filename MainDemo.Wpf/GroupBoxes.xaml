@@ -84,7 +84,7 @@
                 <GroupBox.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ImageArea" Height="32" Width="32" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Kind="ImageArea" Height="32" Width="32" VerticalAlignment="Center" />
                             <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{Binding}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -99,7 +99,7 @@
                 <GroupBox.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ImageArea" Height="32" Width="32" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Kind="ImageArea" Height="32" Width="32" VerticalAlignment="Center" />
                             <TextBlock Margin="8,0,0,0" VerticalAlignment="Center" Style="{StaticResource MaterialDesignSubtitle1TextBlock}" Text="{Binding}"/>
                         </StackPanel>
                     </DataTemplate>
@@ -109,6 +109,3 @@
         </smtx:XamlDisplay>
     </Grid>
 </UserControl>
-
-
-
