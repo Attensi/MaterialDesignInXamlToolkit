@@ -170,13 +170,9 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Border Grid.Row="0" 
-                        Height="{StaticResource PopupTopBottomMargin}"
-                        Background="{Binding ElementName=PART_Popup, Path=Background}" />
-                <ContentPresenter Grid.Row="1"/>
-                <Border Grid.Row="2"
-                        Height="{StaticResource PopupTopBottomMargin}"
-                        Background="{Binding ElementName=PART_Popup, Path=Background}" />
+                <Border Grid.Row="0" Height="{StaticResource PopupTopBottomMargin}" />
+                <ContentPresenter Grid.Row="1" />
+                <Border Grid.Row="2" Height="{StaticResource PopupTopBottomMargin}" />
             </Grid>
          </Border>
       </Grid>
