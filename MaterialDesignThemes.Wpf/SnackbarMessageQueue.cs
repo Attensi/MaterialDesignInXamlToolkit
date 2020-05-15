@@ -18,7 +18,6 @@ namespace MaterialDesignThemes.Wpf
         private readonly ManualResetEvent _disposedEvent = new ManualResetEvent(false);
         private readonly ManualResetEvent _pausedEvent = new ManualResetEvent(false);
         private readonly ManualResetEvent _messageWaitingEvent = new ManualResetEvent(false);
-        private SnackbarMessageQueueItem _latestShownMessage;
         private int _pauseCounter;
         private bool _isDisposed;
 
@@ -78,7 +77,7 @@ namespace MaterialDesignThemes.Wpf
 
                 }).ContinueWith(t =>
                 {
-                    if (((UIElement) sender).IsMouseOver) return;
+                    if (((UIElement)sender).IsMouseOver) return;
                     lock (_waitHandleGate)
                     {
                         if (!_isWaitHandleDisposed)
@@ -157,7 +156,7 @@ namespace MaterialDesignThemes.Wpf
         public SnackbarMessageQueue(TimeSpan messageDuration)
         {
             _messageDuration = messageDuration;
-            Task.Factory.StartNew(PumpAsync);
+            Task.Factory.StartNew(PumpAsync, TaskCreationOptions.LongRunning);
         }
 
         //oh if only I had Disposable.Create in this lib :)  tempted to copy it in like dragabalz, 
@@ -213,7 +212,7 @@ namespace MaterialDesignThemes.Wpf
             if (content == null) throw new ArgumentNullException(nameof(content));
             if (actionContent == null) throw new ArgumentNullException(nameof(actionContent));
             if (actionHandler == null) throw new ArgumentNullException(nameof(actionHandler));
-            
+
             Enqueue(content, actionContent, _ => actionHandler(), promote, false, false);
         }
 
@@ -257,27 +256,27 @@ namespace MaterialDesignThemes.Wpf
 
             var snackbarMessageQueueItem = new SnackbarMessageQueueItem(content, durationOverride ?? _messageDuration,
                 actionContent, actionHandler, actionArgument, promote, neverConsiderToBeDuplicate);
-            if (promote)
-                InsertAsLastNotPromotedNode(snackbarMessageQueueItem);
-            else
-                _snackbarMessages.AddLast(snackbarMessageQueueItem);
+            InsertItem(snackbarMessageQueueItem);
 
             _messageWaitingEvent.Set();
         }
 
-        private void InsertAsLastNotPromotedNode(SnackbarMessageQueueItem snackbarMessageQueueItem)
+        private void InsertItem(SnackbarMessageQueueItem item)
         {
             var node = _snackbarMessages.First;
             while (node != null)
             {
-                if (!node.Value.IsPromoted)
+                if (DiscardDuplicates && item.IsDuplicate(node.Value))
+                    return;
+
+                if (item.IsPromoted && !node.Value.IsPromoted)
                 {
-                    _snackbarMessages.AddBefore(node, snackbarMessageQueueItem);
+                    _snackbarMessages.AddBefore(node, item);
                     return;
                 }
                 node = node.Next;
             }
-            _snackbarMessages.AddLast(snackbarMessageQueueItem);
+            _snackbarMessages.AddLast(item);
         }
 
         private async void PumpAsync()
@@ -290,7 +289,7 @@ namespace MaterialDesignThemes.Wpf
                 if (exemplar == null)
                 {
                     Trace.TraceWarning(
-                        "A snackbar message is waiting, but no Snackbar instances are assigned to the message queue.");
+                        "A snackbar message as waiting, but no Snackbar instances are assigned to the message queue.");
                     _disposedEvent.WaitOne(TimeSpan.FromSeconds(1));
                     continue;
                 }
@@ -301,13 +300,9 @@ namespace MaterialDesignThemes.Wpf
                 //show message
                 if (snackbar != null)
                 {
-                    var message = GetSnackbarMessage();
-                    if (message != null)
-                    {
-                        await ShowAsync(snackbar, message);
-                        _latestShownMessage = message;
-                        message.LastShownAt = DateTime.Now;
-                    }
+                    var message = _snackbarMessages.First!.Value;
+                    await ShowAsync(snackbar, message);
+                    _snackbarMessages.RemoveFirst();
                 }
                 else
                 {
@@ -319,32 +314,6 @@ namespace MaterialDesignThemes.Wpf
                     _messageWaitingEvent.Set();
                 else
                     _messageWaitingEvent.Reset();
-            }
-        }
-
-        /// <summary>
-        /// Removes the first message of the queue and checks
-        /// if the message should be shown. If the message does not
-        /// meet the criteria to be shown, this method returns null. 
-        /// </summary>
-        /// <returns>First Message from the Queue or null</returns>
-        private SnackbarMessageQueueItem GetSnackbarMessage()
-        {
-            if (_snackbarMessages.Count == 0)
-                return null;
-
-            var message = _snackbarMessages.First.Value;
-            _snackbarMessages.RemoveFirst();
-            if (_latestShownMessage == null
-                || _latestShownMessage.MessageExpired()
-                || message.AlwaysShow
-                || !(DiscardDuplicates && message.Equals(_latestShownMessage)))
-            {
-                return message;
-            }
-            else
-            {
-                return null;
             }
         }
 

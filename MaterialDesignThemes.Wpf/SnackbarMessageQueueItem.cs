@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace MaterialDesignThemes.Wpf
 {
@@ -53,27 +52,20 @@ namespace MaterialDesignThemes.Wpf
         public bool AlwaysShow { get; }
 
         /// <summary>
-        /// Last time this message was shown
+        /// Checks if given item is a duplicate to this
         /// </summary>
-        public DateTime LastShownAt { get; set; }
-
-        public bool MessageExpired()
+        /// <param name="item">Item to check for duplicate</param>
+        /// <returns><c>true</c> if given item is a duplicate to this, <c>false</c> otherwise</returns>
+        public bool IsDuplicate(SnackbarMessageQueueItem item)
         {
-            return LastShownAt <= DateTime.Now.Subtract(Duration);
-        }
+            if (item is null)
+            {
+                throw new ArgumentNullException(nameof(item));
+            }
 
-        public override bool Equals(object obj)
-        {
-            if (!(obj is SnackbarMessageQueueItem message))
-                return false;
-
-            return EqualityComparer<object>.Default.Equals(Content, message.Content)
-                   && EqualityComparer<object>.Default.Equals(ActionContent, message.ActionContent);
-        }
-
-        public override int GetHashCode()
-        {
-            return (Content, ActionContent).GetHashCode();
+            return !AlwaysShow
+                   && Equals(item.Content, Content)
+                   && Equals(item.ActionContent, ActionContent);
         }
     }
 }
