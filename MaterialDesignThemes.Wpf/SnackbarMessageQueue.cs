@@ -300,7 +300,7 @@ namespace MaterialDesignThemes.Wpf
                 //show message
                 if (snackbar != null)
                 {
-                    var message = _snackbarMessages.First!.Value;
+                    var message = _snackbarMessages.First.Value;
                     await ShowAsync(snackbar, message);
                     _snackbarMessages.RemoveFirst();
                 }

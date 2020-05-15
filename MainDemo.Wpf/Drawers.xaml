@@ -109,27 +109,27 @@
                         <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Left}"
                             Grid.Row="1" Grid.Column="0"  Margin="4">
-                            <iconPacks:PackIconMateria Kind="ArrowLeft" />
+                            <iconPacks:PackIconMaterial Kind="ArrowLeft" />
                         </Button>
                         <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Top}"
                             Grid.Row="0" Grid.Column="1" Margin="4">
-                            <iconPacks:PackIconMateria Kind="ArrowUp" />
+                            <iconPacks:PackIconMaterial Kind="ArrowUp" />
                         </Button>
                         <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Right}"
                             Grid.Row="1" Grid.Column="2" Margin="4">
-                            <iconPacks:PackIconMateria Kind="ArrowRight" />
+                            <iconPacks:PackIconMaterial Kind="ArrowRight" />
                         </Button>
                         <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             CommandParameter="{x:Static Dock.Bottom}"
                             Grid.Row="2" Grid.Column="1" Margin="4">
-                            <iconPacks:PackIconMateria Kind="ArrowDown" />
+                            <iconPacks:PackIconMaterial Kind="ArrowDown" />
                         </Button>
                         <Button Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                             Grid.Row="1" Grid.Column="1" Margin="4" 
                             Style="{DynamicResource MaterialDesignRaisedAccentButton}">
-                            <iconPacks:PackIconMateria Kind="ArrowAll" />
+                            <iconPacks:PackIconMaterial Kind="ArrowAll" />
                         </Button>
                     </Grid>
                 </Grid>
