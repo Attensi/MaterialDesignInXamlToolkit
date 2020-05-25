@@ -95,7 +95,8 @@
                                 CornerRadius="{Binding Path=(wpf:TextFieldAssist.TextFieldCornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
                                 SnapsToDevicePixels="True">
                             <Grid>
-                                <Border x:Name="border"
+                              <AdornerDecorator>
+                                 <Border x:Name="border"
                                         BorderBrush="{TemplateBinding BorderBrush}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         SnapsToDevicePixels="True"
@@ -123,6 +124,7 @@
                                                        FloatingOffset="{Binding Path=(wpf:HintAssist.FloatingOffset), RelativeSource={RelativeSource TemplatedParent}}" />
                                     </Grid>
                                 </Border>
+                              </AdornerDecorator>
                                 <Border x:Name="textFieldBoxBottomLine"
                                         Background="{TemplateBinding BorderBrush}"
                                         Height="0"
@@ -357,6 +359,8 @@
                                            Style="{DynamicResource MaterialDesignDatePickerTextBox}"
                                            HorizontalAlignment="Stretch"
                                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                           BorderThickness="{TemplateBinding BorderThickness}"
+                                           BorderBrush="{TemplateBinding BorderBrush}"
                                            wpf:HintAssist.IsFloating="{Binding Path=(wpf:HintAssist.IsFloating), RelativeSource={RelativeSource TemplatedParent}}"
                                            wpf:HintAssist.FloatingScale="{Binding Path=(wpf:HintAssist.FloatingScale), RelativeSource={RelativeSource TemplatedParent}}"
                                            wpf:HintAssist.FloatingOffset="{Binding Path=(wpf:HintAssist.FloatingOffset), RelativeSource={RelativeSource TemplatedParent}}"
