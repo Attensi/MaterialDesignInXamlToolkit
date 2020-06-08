@@ -17,14 +17,19 @@ namespace MaterialDesignThemes.Wpf.Converters
 
             var thickness = parameter as double? ?? GridLinesThickness;
 
-            return visibility switch
+            switch (visibility)
             {
-                DataGridGridLinesVisibility.All => new Thickness(0, 0, thickness, thickness),
-                DataGridGridLinesVisibility.Horizontal => new Thickness(0, 0, 0, thickness),
-                DataGridGridLinesVisibility.Vertical => new Thickness(0, 0, thickness, 0),
-                DataGridGridLinesVisibility.None => new Thickness(0),
-                _ => throw new ArgumentOutOfRangeException()
-            };
+                case DataGridGridLinesVisibility.All:
+                    return new Thickness(0, 0, thickness, thickness);
+                case DataGridGridLinesVisibility.Horizontal:
+                    return new Thickness(0, 0, 0, thickness);
+                case DataGridGridLinesVisibility.Vertical:
+                    return new Thickness(0, 0, thickness, 0);
+                case DataGridGridLinesVisibility.None:
+                    return new Thickness(0);
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

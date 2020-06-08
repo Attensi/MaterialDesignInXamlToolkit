@@ -19,12 +19,19 @@ namespace MaterialDesignThemes.Wpf.Converters
 
         private static Color RgbaToRgb(Color rgba, object background)
         {
-            var backgroundColor = background switch
+            Color backgroundColor;
+            switch (background)
             {
-                Color c => c,
-                SolidColorBrush b => b.Color,
-                _ => Colors.White
-            };
+                case Color c:
+                    backgroundColor = c;
+                    break;
+                case SolidColorBrush b:
+                    backgroundColor = b.Color;
+                    break;
+                default:
+                    backgroundColor = Colors.White;
+                    break;
+            }
 
             var alpha = (double) rgba.A / byte.MaxValue;
             var alphaReverse = 1 - alpha;
