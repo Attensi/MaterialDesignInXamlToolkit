@@ -67,7 +67,7 @@
                                                                  Margin="3">
                                             <iconPacks:PackIconMaterial.Style>
                                                 <Style TargetType="iconPacks:PackIconMaterial" BasedOn="{StaticResource {x:Type iconPacks:PackIconMaterial}}">
-                                                    <Setter Property="Opacity" Value="0.2" />
+                                                    <Setter Property="Opacity" Value="0.4" />
                                                     <Style.Triggers>
                                                         <Trigger Property="IsMouseOver" Value="True">
                                                             <Setter Property="Opacity" Value="1" />
