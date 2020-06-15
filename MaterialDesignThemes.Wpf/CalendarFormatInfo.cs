@@ -179,18 +179,15 @@ namespace MaterialDesignThemes.Wpf
             if (cultureInfo is null)
                 throw new ArgumentNullException(nameof(cultureInfo));
 
-            CalendarFormatInfo calendarInfo;
-            if (_formatInfoCache.TryGetValue(cultureInfo.Name, out calendarInfo))
+            if (_formatInfoCache.TryGetValue(cultureInfo.Name, out var calendarInfo))
                 return calendarInfo;
 
             var dateTimeFormat = cultureInfo.DateTimeFormat;
 
-            string yearPattern;
-            if (!_cultureYearPatterns.TryGetValue(cultureInfo.Name, out yearPattern))
+            if (!_cultureYearPatterns.TryGetValue(cultureInfo.Name, out var yearPattern))
                 yearPattern = "yyyy";
 
-            DayOfWeekStyle dayOfWeekStyle;
-            if (!_cultureDayOfWeekStyles.TryGetValue(cultureInfo.Name, out dayOfWeekStyle))
+            if (!_cultureDayOfWeekStyles.TryGetValue(cultureInfo.Name, out var dayOfWeekStyle))
                 dayOfWeekStyle = DayOfWeekStyle.Parse(dateTimeFormat.LongDatePattern);
 
             var monthDayPattern = dateTimeFormat.MonthDayPattern.Replace("MMMM", "MMM");
@@ -269,25 +266,30 @@ namespace MaterialDesignThemes.Wpf
                     if (index < s.Length && s[index] == 'd')
                         index++;
                     for (; index < s.Length && IsSpace(s[index]); index++)
-                        ;
+                    {
+                    }
+
                     var separator = index < s.Length && IsSeparator(s[index]) ? s[index].ToString() : string.Empty;
                     return new DayOfWeekStyle(ShortDayOfWeek, separator, true);
                 }
-                else if (s.EndsWith(ShortDayOfWeek, StringComparison.Ordinal))
+
+                if (s.EndsWith(ShortDayOfWeek, StringComparison.Ordinal))
                 {
                     var index = s.Length - 4;
                     if (index >= 0 && s[index] == 'd')
                         index--;
                     for (; index >= 0 && IsSpace(s[index]); index--)
-                        ;
+                    {
+                    }
+
                     var separator = index >= 0 && IsSeparator(s[index]) ? s[index].ToString() : string.Empty;
                     return new DayOfWeekStyle(ShortDayOfWeek, separator, false);
                 }
                 return new DayOfWeekStyle(ShortDayOfWeek, string.Empty, true);
 
-                static bool IsSpace(char c) => c == ' ' || c == '\'';
+                bool IsSpace(char c) => c == ' ' || c == '\'';
 
-                static bool IsSeparator(char c) => SeparatorChars.IndexOf(c) >= 0;
+                bool IsSeparator(char c) => SeparatorChars.IndexOf(c) >= 0;
             }
         }
     }
