@@ -10,19 +10,23 @@ namespace MaterialDesignThemes.Wpf.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             double factor = 1.0;
-            if (parameter is { } parameterValue)
+            if (parameter != null)
             {
-                if (!double.TryParse(parameterValue.ToString(), out factor))
+                if (!double.TryParse(parameter.ToString(), out factor))
                 {
                     factor = 1.0;
                 }
             }
-            return value switch
+
+            switch (value)
             {
-                ExpandDirection.Left => 90 * factor,
-                ExpandDirection.Right => -90 * factor,
-                _ => 0
-            };
+                case ExpandDirection.Left:
+                    return 90 * factor;
+                case ExpandDirection.Right:
+                    return -90 * factor;
+                default:
+                    return 0;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
