@@ -160,8 +160,8 @@
                     <iconPacks:PackIconMaterial Kind="Message" />
                 </Button>
                 <Button ToolTip="Email" Click="EmailButton_OnClick"
-                        Background="{DynamicResource SecondaryAccentBrush}"
-                        Foreground="{DynamicResource SecondaryAccentForegroundBrush}"
+                        Background="{DynamicResource SecondaryHueMidBrush}"
+                        Foreground="{DynamicResource SecondaryHueMidForegroundBrush}"
                         >
                     <iconPacks:PackIconMaterial Kind="Email" />
                 </Button>
