@@ -185,9 +185,9 @@ namespace MaterialDesignThemes.Wpf
         public static void Close(object dialogIdentifier, object parameter)
         {
             DialogHost dialogHost = GetInstance(dialogIdentifier);
-            if (dialogHost.CurrentSession is { } currentSession)
+            if (dialogHost.CurrentSession != null)
             {
-                currentSession.Close(parameter);
+                dialogHost.CurrentSession.Close(parameter);
                 return;
             }
             throw new InvalidOperationException("DialogHost is not open.");

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -30,7 +31,7 @@
                     <TabControl Style="{StaticResource MaterialDesignNavigatilRailTabControl}">
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 1 content. Default look and behaviors. "/>
@@ -43,7 +44,7 @@
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 2 content. Default look and behaviors. "/>
@@ -61,7 +62,7 @@
                                 materialDesign:ColorZoneAssist.Mode="Accent">
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 1 content. Default look and behaviors. "/>
@@ -74,7 +75,7 @@
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 2 content. Default look and behaviors. "/>
@@ -91,7 +92,7 @@
                     <TabControl Style="{StaticResource MaterialDesignNavigatilRailTabControl}" TabStripPlacement="Right">
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 1 content. Default look and right aligned. "/>
@@ -104,7 +105,7 @@
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 2 content. Default look and right aligned. "/>
@@ -117,7 +118,7 @@
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Tree" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Tree" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 3 content. Default look and right aligned. "/>
@@ -134,7 +135,7 @@
                     <TabControl Style="{StaticResource MaterialDesignNavigatilRailTabControl}" materialDesign:ColorZoneAssist.Mode="PrimaryMid">
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 1 content. Default look and behaviors. "/>
@@ -147,7 +148,7 @@
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 2 content. Default look and behaviors. "/>
@@ -160,7 +161,7 @@
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Tree" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Tree" Width="24" Height="24"/>
                             </TabItem.Header>
                             <TextBlock Padding="5" TextWrapping="Wrap" >
                                 <Run Text="tab 3 content. Default look and right aligned. "/>
@@ -182,12 +183,12 @@
                             materialDesign:ColorZoneAssist.Mode="PrimaryDark">
                     <materialDesign:NavigationRailAssist.FloatingContent>
                         <Button Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Margin="0,8">
-                            <materialDesign:PackIcon Kind="Plus" />
+                            <iconPacks:PackIconMaterial Kind="Plus" />
                         </Button>
                     </materialDesign:NavigationRailAssist.FloatingContent>
                     <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                         <TabItem.Header>
-                            <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                            <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                         </TabItem.Header>
                         <TextBlock Padding="5" TextWrapping="Wrap" >
                         <Run Text="tab 1 content. Default look and behaviors. "/>
@@ -200,7 +201,7 @@
                     </TabItem>
                     <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                         <TabItem.Header>
-                            <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                            <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                         </TabItem.Header>
                         <TextBlock Padding="5" TextWrapping="Wrap" >
                         <Run Text="tab 2 content. Default look and behaviors. "/>
@@ -222,12 +223,12 @@
                                 materialDesign:ShadowAssist.ShadowDepth="Depth0">
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                     </TabControl>
@@ -238,12 +239,12 @@
                                 materialDesign:ShadowAssist.ShadowDepth="Depth1" >
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                     </TabControl>
@@ -254,12 +255,12 @@
                                 materialDesign:ShadowAssist.ShadowDepth="Depth2">
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                     </TabControl>
@@ -270,12 +271,12 @@
                                 materialDesign:ShadowAssist.ShadowDepth="Depth3">
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Heart" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Heart" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                         <TabItem Style="{StaticResource MaterialDesignNavigationRailTabItem}" >
                             <TabItem.Header>
-                                <materialDesign:PackIcon Kind="Spade" Width="24" Height="24"/>
+                                <iconPacks:PackIconMaterial Kind="Spade" Width="24" Height="24"/>
                             </TabItem.Header>
                         </TabItem>
                     </TabControl>
