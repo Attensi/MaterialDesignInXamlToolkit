@@ -1,4 +1,4 @@
-﻿<Application x:Class="MaterialDesignColors.WpfExample.App"
+﻿<Application x:Class="MaterialDesignDemo.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -57,13 +57,13 @@
                             <DockPanel>
                                 <materialDesign:PopupBox DockPanel.Dock="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(materialDesignDemo:XamlDisplayEx.ButtonDock)}"
                                                          Padding="10" StaysOpen="True" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                         VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                                          x:Name="PopupBox">
                                     <materialDesign:PopupBox.ToggleContent>
-                                        <iconPacks:PackIconMaterial Kind="LanguageXaml" Cursor="Hand" ToolTip="View XAML" 
-                                                                 Foreground="{DynamicResource PrimaryHueDarkBrush}" 
-                                                                 Background="Transparent" 
-                                                                 Margin="3">
+                                        <iconPacks:PackIconMaterial Kind="LanguageXaml" Cursor="Hand" ToolTip="View XAML"
+                                                                    Foreground="{DynamicResource PrimaryHueDarkBrush}"
+                                                                    Background="Transparent"
+                                                                    Margin="3">
                                             <iconPacks:PackIconMaterial.Style>
                                                 <Style TargetType="iconPacks:PackIconMaterial" BasedOn="{StaticResource {x:Type iconPacks:PackIconMaterial}}">
                                                     <Setter Property="Opacity" Value="0.4" />
@@ -88,7 +88,7 @@
                                                 DockPanel.Dock="Bottom"
                                                 Style="{StaticResource MaterialDesignRaisedButton}">
                                             </Button>
-                                            <avalonEdit:TextEditor Document="{Binding Xaml, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TextDocumentValueConverter}}" 
+                                            <avalonEdit:TextEditor Document="{Binding Xaml, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TextDocumentValueConverter}}"
                                                                    Style="{StaticResource AvalonTextEditorXamlDisplay}" />
                                         </DockPanel>
                                     </Border>

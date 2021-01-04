@@ -6,13 +6,15 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <ApplicationManifest>App.manifest</ApplicationManifest>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AvalonEdit" Version="6.0.1" />
-    <PackageReference Include="MaterialDesignColors" Version="1.2.7-ci1966" />
-    <PackageReference Include="ShowMeTheXAML" Version="1.1.0-ci73" />
-    <PackageReference Include="ShowMeTheXAML.AvalonEdit" Version="1.1.0-ci73" />
-    <PackageReference Include="ShowMeTheXAML.MSBuild" Version="1.1.0-ci73" />
+    <PackageReference Include="MaterialDesignColors" Version="1.2.7" />
+    <PackageReference Include="ShowMeTheXAML" Version="2.0.0" />
+    <PackageReference Include="ShowMeTheXAML.AvalonEdit" Version="2.0.0" />
+    <PackageReference Include="ShowMeTheXAML.MSBuild" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MaterialDesignThemes.Wpf\MaterialDesignThemes.Wpf.csproj" />

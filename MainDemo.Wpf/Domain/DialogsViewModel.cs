@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MaterialDesignColors.WpfExample.Domain;
+using MaterialDesignDemo.Domain;
 using MaterialDesignThemes.Wpf;
 
 namespace MaterialDesignDemo.Domain
@@ -24,7 +24,7 @@ namespace MaterialDesignDemo.Domain
 
         public ICommand RunExtendedDialogCommand => new AnotherCommandImplementation(ExecuteRunExtendedDialog);
 
-        private async void ExecuteRunDialog(object o)
+        private async void ExecuteRunDialog(object? o)
         {
             //let's set up a little MVVM, cos that's what the cool kids are doing:
             var view = new SampleDialog
@@ -40,11 +40,9 @@ namespace MaterialDesignDemo.Domain
         }
 
         private void ClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
-        {
-            Console.WriteLine("You can intercept the closing event, and cancel here.");
-        }
+            => Console.WriteLine("You can intercept the closing event, and cancel here.");
 
-        private async void ExecuteRunExtendedDialog(object o)
+        private async void ExecuteRunExtendedDialog(object? o)
         {
             //let's set up a little MVVM, cos that's what the cool kids are doing:
             var view = new SampleDialog
@@ -60,13 +58,12 @@ namespace MaterialDesignDemo.Domain
         }
 
         private void ExtendedOpenedEventHandler(object sender, DialogOpenedEventArgs eventargs)
-        {
-            Console.WriteLine("You could intercept the open and affect the dialog using eventArgs.Session.");
-        }
+            => Console.WriteLine("You could intercept the open and affect the dialog using eventArgs.Session.");
 
         private void ExtendedClosingEventHandler(object sender, DialogClosingEventArgs eventArgs)
         {
-            if ((bool)eventArgs.Parameter == false) return;
+            if (eventArgs.Parameter is bool parameter &&
+                parameter == false) return;
 
             //OK, lets cancel the close...
             eventArgs.Cancel();
@@ -91,11 +88,11 @@ namespace MaterialDesignDemo.Domain
         public ICommand CancelSample4DialogCommand { get; }
 
         private bool _isSample4DialogOpen;
-        private object _sample4Content;
+        private object? _sample4Content;
 
         public bool IsSample4DialogOpen
         {
-            get { return _isSample4DialogOpen; }
+            get => _isSample4DialogOpen;
             set
             {
                 if (_isSample4DialogOpen == value) return;
@@ -104,9 +101,9 @@ namespace MaterialDesignDemo.Domain
             }
         }
 
-        public object Sample4Content
+        public object? Sample4Content
         {
-            get { return _sample4Content; }
+            get => _sample4Content;
             set
             {
                 if (_sample4Content == value) return;
@@ -115,18 +112,18 @@ namespace MaterialDesignDemo.Domain
             }
         }
 
-        private void OpenSample4Dialog(object obj)
+        private void OpenSample4Dialog(object? obj)
         {
             Sample4Content = new Sample4Dialog();
             IsSample4DialogOpen = true;
         }
 
-        private void CancelSample4Dialog(object obj)
+        private void CancelSample4Dialog(object? obj)
         {
             IsSample4DialogOpen = false;
         }
 
-        private void AcceptSample4Dialog(object obj)
+        private void AcceptSample4Dialog(object? obj)
         {
             //pretend to do something for 3 seconds, then close
             Sample4Content = new SampleProgressDialog();
@@ -137,7 +134,7 @@ namespace MaterialDesignDemo.Domain
 
         #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

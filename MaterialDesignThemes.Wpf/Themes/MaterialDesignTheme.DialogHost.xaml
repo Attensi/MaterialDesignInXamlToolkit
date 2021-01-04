@@ -134,8 +134,8 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <wpf:PopupEx PlacementTarget="{Binding ElementName=DialogHostRoot, Mode=OneWay}"
-                                            x:Name="PART_Popup"
-                                            Style="{TemplateBinding PopupStyle}">
+                                     x:Name="PART_Popup"
+                                     Style="{TemplateBinding PopupStyle}">
                             <wpf:PopupEx.Resources>
                                 <ResourceDictionary>
                                     <ResourceDictionary.MergedDictionaries>
