@@ -96,7 +96,7 @@
                                         <ColumnDefinition />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <wpf:PackIcon
+                                    <iconPacks:PackIconMaterial
                                         Grid.Column="0"
                                         x:Name="LeadingPackIcon"
                                         Margin="0 0 6 0"
@@ -177,8 +177,8 @@
                                         </wpf:SmartHint>
                                         
                                     </Grid>
-                                    
-                                    <wpf:PackIcon
+
+                                    <iconPacks:PackIconMaterial
                                         Grid.Column="2"
                                         x:Name="TrailingPackIcon"
                                         Margin="4 0 0 0"
