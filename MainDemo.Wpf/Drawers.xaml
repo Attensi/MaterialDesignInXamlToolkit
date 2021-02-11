@@ -19,7 +19,7 @@
             <TextBlock
                 VerticalAlignment="Center"
                 Text="Black Overlay Background"/>
-            
+
             <ToggleButton
                 Margin="8 0 16 0"
                 x:Name="BackgroundToggle" />
@@ -27,6 +27,13 @@
             <TextBlock
                 VerticalAlignment="Center"
                 Text="Primary Overlay Background"/>
+
+            <TextBlock Text="Open Mode" Margin="30,0,16,0" VerticalAlignment="Center"/>
+            <ComboBox SelectedValue="{Binding OpenMode, ElementName=DrawerHost}"
+                          SelectedValuePath="Content">
+                <ComboBoxItem Content="{x:Static materialDesign:DrawerHostOpenMode.Model}" />
+                <ComboBoxItem Content="{x:Static materialDesign:DrawerHostOpenMode.Standard}" />
+            </ComboBox>
         </StackPanel>
 
         <smtx:XamlDisplay
@@ -34,10 +41,11 @@
             MaxHeight="{x:Static system:Double.MaxValue}"
             Margin="5">
             <materialDesign:DrawerHost
-                Margin="32" 
+                x:Name="DrawerHost"
+                Margin="32"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center" 
-                BorderThickness="2" 
+                BorderThickness="2"
                 BorderBrush="{DynamicResource MaterialDesignDivider}">
 
                 <materialDesign:DrawerHost.Style>
@@ -49,14 +57,14 @@
                         </Style.Triggers>
                     </Style>
                 </materialDesign:DrawerHost.Style>
-                
+
                 <materialDesign:DrawerHost.LeftDrawerContent>
                     <StackPanel Margin="16">
                         <TextBlock
                             Margin="4"
                             HorizontalAlignment="Center"
                             Text="LEFT FIELD"/>
-                        
+
                         <Button
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             CommandParameter="{x:Static Dock.Left}"
@@ -73,7 +81,7 @@
                             Content="CLOSE ALL"/>
                     </StackPanel>
                 </materialDesign:DrawerHost.LeftDrawerContent>
-                
+
                 <materialDesign:DrawerHost.TopDrawerContent>
                     <StackPanel
                         Margin="16"
@@ -100,14 +108,14 @@
                             Content="CLOSE THIS"/>
                     </StackPanel>
                 </materialDesign:DrawerHost.TopDrawerContent>
-                
+
                 <materialDesign:DrawerHost.RightDrawerContent>
                     <StackPanel Margin="16">
                         <TextBlock
                             Margin="4"
                             HorizontalAlignment="Center"
                             Text="THE RIGHT STUFF"/>
-                        
+
                         <Button
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             CommandParameter="{x:Static Dock.Right}"
@@ -115,7 +123,7 @@
                             HorizontalAlignment="Center"
                             Style="{DynamicResource MaterialDesignFlatButton}"
                             Content="CLOSE THIS"/>
-                        
+
                         <Button
                             Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
                             Margin="4"
@@ -124,7 +132,7 @@
                             Content="CLOSE ALL"/>
                     </StackPanel>
                 </materialDesign:DrawerHost.RightDrawerContent>
-                
+
                 <materialDesign:DrawerHost.BottomDrawerContent>
                     <StackPanel
                         Margin="16"
@@ -151,7 +159,7 @@
                             Content="CLOSE THIS"/>
                     </StackPanel>
                 </materialDesign:DrawerHost.BottomDrawerContent>
-                
+
                 <Grid
                     MinWidth="480"
                     MinHeight="480">
@@ -163,7 +171,7 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        
+
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
