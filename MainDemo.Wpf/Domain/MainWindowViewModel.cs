@@ -11,7 +11,7 @@ using MaterialDesignThemes.Wpf.Transitions;
 
 namespace MaterialDesignDemo.Domain
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    public class MainWindowViewModel : ViewModelBase
     {
         public MainWindowViewModel()
         {
@@ -19,7 +19,7 @@ namespace MaterialDesignDemo.Domain
             {
                 new DemoItem(
                     "Home",
-                    new Home(),
+                    typeof(Home),
                     new[]
                     {
                         new DocumentationLink(
@@ -62,8 +62,6 @@ namespace MaterialDesignDemo.Domain
                _ => SelectedIndex < DemoItems.Count - 1);
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         private readonly ICollectionView _demoItemsView;
         private DemoItem? _selectedItem;
         private int _selectedIndex;
@@ -74,9 +72,10 @@ namespace MaterialDesignDemo.Domain
             get => _searchKeyword;
             set
             {
-                _searchKeyword = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SearchKeyword)));
-                _demoItemsView.Refresh();
+                if (SetProperty(ref _searchKeyword, value))
+                {
+                    _demoItemsView.Refresh();
+                }
             }
         }
 
@@ -85,23 +84,13 @@ namespace MaterialDesignDemo.Domain
         public DemoItem? SelectedItem
         {
             get => _selectedItem;
-            set
-            {
-                if (value == null || value.Equals(_selectedItem)) return;
-
-                _selectedItem = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedItem)));
-            }
+            set => SetProperty(ref _selectedItem, value);
         }
 
         public int SelectedIndex
         {
             get => _selectedIndex;
-            set
-            {
-                _selectedIndex = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedIndex)));
-            }
+            set => SetProperty(ref _selectedIndex, value);
         }
 
         public AnotherCommandImplementation HomeCommand { get; }
@@ -112,7 +101,7 @@ namespace MaterialDesignDemo.Domain
         {
             yield return new DemoItem(
                 "Buttons",
-                new Buttons { DataContext = new ButtonsViewModel() },
+                typeof(Buttons),
                 new[]
                 {
                     DocumentationLink.WikiLink("Button-Styles", "Buttons"),
@@ -125,7 +114,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Toggles",
-                new Toggles(),
+                typeof(Toggles),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Toggles>(),
@@ -136,7 +125,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Rating Bar",
-                new RatingBar(),
+                typeof(RatingBar),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<RatingBar>(),
@@ -146,7 +135,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Fields",
-                new Fields(),
+                typeof(Fields),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Fields>(),
@@ -155,7 +144,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Fields line up",
-                new FieldsLineUp(),
+                typeof(FieldsLineUp),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<FieldsLineUp>()
@@ -163,7 +152,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "ComboBoxes",
-                new ComboBoxes(),
+                typeof(ComboBoxes),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<ComboBoxes>(),
@@ -172,7 +161,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Pickers",
-                new Pickers { DataContext = new PickersViewModel() },
+                typeof(Pickers),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Pickers>(),
@@ -183,7 +172,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Sliders",
-                new Sliders(),
+                typeof(Sliders),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Sliders>(),
@@ -192,7 +181,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Chips",
-                new Chips(),
+                typeof(Chips),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Chips>(),
@@ -202,7 +191,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Typography",
-                new Typography(),
+                typeof(Typography),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Typography>(),
@@ -214,7 +203,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Cards",
-                new Cards(),
+                typeof(Cards),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Cards>(),
@@ -224,7 +213,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Colour Zones",
-                new ColorZones(),
+                typeof(ColorZones),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<ColorZones>(),
@@ -233,7 +222,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Lists",
-                new Lists { DataContext = new ListsAndGridsViewModel() },
+                typeof(Lists),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Lists>("Demo View"),
@@ -244,7 +233,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Trees",
-                new Trees { DataContext = new TreesViewModel() },
+                typeof(Trees),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Trees>("Demo View"),
@@ -254,7 +243,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Data Grids",
-                new DataGrids { DataContext = new ListsAndGridsViewModel() },
+                typeof(DataGrids),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<DataGrids>("Demo View"),
@@ -264,7 +253,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Expander",
-                new Expander(),
+                typeof(Expander),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Expander>(),
@@ -273,7 +262,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Group Boxes",
-                new GroupBoxes(),
+                typeof(GroupBoxes),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<GroupBoxes>(),
@@ -282,7 +271,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Menus & Tool Bars",
-                new MenusAndToolBars(),
+                typeof(MenusAndToolBars),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<MenusAndToolBars>(),
@@ -292,7 +281,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Progress Indicators",
-                new Progress(),
+                typeof(Progress),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Progress>(),
@@ -301,7 +290,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Navigation Rail",
-                new NavigationRail(),
+                typeof(NavigationRail),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<NavigationRail>("Demo View"),
@@ -310,7 +299,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Dialogs",
-                new Dialogs { DataContext = new DialogsViewModel() },
+                typeof(Dialogs),
                 new[]
                 {
                     DocumentationLink.WikiLink("Dialogs", "Dialogs"),
@@ -324,7 +313,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Drawer",
-                new Drawers(),
+                typeof(Drawers),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Drawers>("Demo View"),
@@ -333,7 +322,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Snackbar",
-                new Snackbars(),
+                typeof(Snackbars),
                 new[]
                 {
                     DocumentationLink.WikiLink("Snackbar", "Snackbar"),
@@ -348,7 +337,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Transitions",
-                new Transitions(),
+                typeof(Transitions),
                 new[]
                 {
                     DocumentationLink.WikiLink("Transitions", "Transitions"),
@@ -360,7 +349,7 @@ namespace MaterialDesignDemo.Domain
 
             yield return new DemoItem(
                 "Shadows",
-                new Shadows(),
+                typeof(Shadows),
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Shadows>(),

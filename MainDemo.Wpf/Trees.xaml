@@ -8,6 +8,7 @@
     xmlns:domain="clr-namespace:MaterialDesignDemo.Domain"
     xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    d:DataContext="{d:DesignInstance domain:TreesViewModel}"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="300">
