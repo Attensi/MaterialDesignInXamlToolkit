@@ -28,6 +28,9 @@
                 <ResourceDictionary Source="pack://application:,,,/ShowMeTheXAML.AvalonEdit;component/Themes/xamldisplayer.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <Color x:Key="MaterialDesignShadow">#AA000000</Color>
+            <SolidColorBrush x:Key="MaterialDesignShadowBrush" Color="{StaticResource MaterialDesignShadow}"/>
+
             <Style TargetType="smtx:XamlDisplay" BasedOn="{StaticResource {x:Type smtx:XamlDisplay}}">
                 <Style.Resources>
                     <ResourceDictionary>

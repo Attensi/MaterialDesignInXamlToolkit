@@ -29,7 +29,7 @@
     <converters:MathConverter x:Key="MathAddConverter" Operation="Add" />
     <system:Int32 x:Key="ProgressRingStrokeWidth">8</system:Int32>
 
-    <SolidColorBrush x:Key="AttentionToActionBrush" Color="{StaticResource MaterialDesignShadow}" Opacity=".23" po:Freeze="True" />
+    <SolidColorBrush x:Key="AttentionToActionBrush" Color="{DynamicResource MaterialDesignShadow}" Opacity=".23" po:Freeze="True" />
 
     <Style x:Key="MaterialDesignRaisedButton" TargetType="{x:Type ButtonBase}">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
@@ -58,7 +58,7 @@
                     <Grid>
                         <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:ShadowAssist.CacheMode)}">
                             <Grid>
-                                <Border Background="{TemplateBinding Background}" 
+                                <Border Background="{TemplateBinding Background}"
                                         CornerRadius="{Binding Path=(wpf:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         BorderBrush="{TemplateBinding BorderBrush}"
@@ -149,7 +149,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Grid>
-                        <Border Background="{TemplateBinding Background}" x:Name="border" 
+                        <Border Background="{TemplateBinding Background}" x:Name="border"
                                 CornerRadius="{Binding Path=(wpf:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
                                 BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <wpf:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
@@ -215,17 +215,17 @@
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
                     <Grid>
                         <Border Background="{TemplateBinding Background}"
-                                x:Name="border" 
+                                x:Name="border"
                                 CornerRadius="{Binding Path=(wpf:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
-                            <wpf:Ripple Content="{TemplateBinding Content}" 
-                                        ContentTemplate="{TemplateBinding ContentTemplate}" 
+                            <wpf:Ripple Content="{TemplateBinding Content}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
                                         Focusable="False"
                                         ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                         VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                        Padding="{TemplateBinding Padding}" 
+                                        Padding="{TemplateBinding Padding}"
                                         SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                                 <wpf:Ripple.Clip>
                                     <MultiBinding Converter="{StaticResource BorderClipConverter}">
