@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -49,13 +49,13 @@ namespace MaterialDesignThemes.Wpf
         /// <summary>
         /// Routed command to be used somewhere inside an instance to trigger showing of the dialog. Content can be passed to the dialog via a <see cref="Button.CommandParameter"/>.
         /// </summary>
-        public static RoutedCommand OpenDialogCommand = new RoutedCommand();
+        public static readonly RoutedCommand OpenDialogCommand = new();
         /// <summary>
         /// Routed command to be used inside dialog content to close a dialog. Use a <see cref="Button.CommandParameter"/> to indicate the result of the parameter.
         /// </summary>
-        public static RoutedCommand CloseDialogCommand = new RoutedCommand();
+        public static readonly RoutedCommand CloseDialogCommand = new();
 
-        private static readonly HashSet<DialogHost> LoadedInstances = new HashSet<DialogHost>();
+        private static readonly HashSet<DialogHost> LoadedInstances = new();
 
         private DialogOpenedEventHandler? _asyncShowOpenedEventHandler;
         private DialogClosingEventHandler? _asyncShowClosingEventHandler;
@@ -267,7 +267,7 @@ namespace MaterialDesignThemes.Wpf
 
             if (dialogHost._popupContentControl != null)
                 ValidationAssist.SetSuppress(dialogHost._popupContentControl, !dialogHost.IsOpen);
-            VisualStateManager.GoToState(dialogHost, dialogHost.SelectState(), !TransitionAssist.GetDisableTransitions(dialogHost));
+            VisualStateManager.GoToState(dialogHost, dialogHost.GetStateName(), !TransitionAssist.GetDisableTransitions(dialogHost));
 
             if (dialogHost.IsOpen)
             {
@@ -285,8 +285,17 @@ namespace MaterialDesignThemes.Wpf
                 object? closeParameter = null;
                 if (dialogHost.CurrentSession is { } session)
                 {
+                    if (!session.IsEnded)
+                    {
+                        session.Close(session.CloseParameter);
+                    }
+                    //DialogSession.Close may attempt to cancel the closing of the dialog.
+                    //When the dialog is closed in this manner it is not valid
+                    if (!session.IsEnded)
+                    {
+                        throw new InvalidOperationException($"Cannot cancel dialog closing after {nameof(IsOpen)} property has been set to {bool.FalseString}");
+                    }
                     closeParameter = session.CloseParameter;
-                    session.IsEnded = true;
                     dialogHost.CurrentSession = null;
                 }
                 
@@ -323,7 +332,7 @@ namespace MaterialDesignThemes.Wpf
 
                 if (child != null)
                 {
-                    //https://github.com/ButchersBoy/MaterialDesignInXamlToolkit/issues/187
+                    //https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit/issues/187
                     //totally not happy about this, but on immediate validation we can get some weird looking stuff...give WPF a kick to refresh...
                     Task.Delay(300).ContinueWith(t => child.Dispatcher.BeginInvoke(new Action(() => child.InvalidateVisual())));
                 }
@@ -482,7 +491,7 @@ namespace MaterialDesignThemes.Wpf
             if (_contentCoverGrid != null)
                 _contentCoverGrid.MouseLeftButtonUp += ContentCoverGridOnMouseLeftButtonUp;
 
-            VisualStateManager.GoToState(this, SelectState(), false);
+            VisualStateManager.GoToState(this, GetStateName(), false);
 
             base.OnApplyTemplate();
         }
@@ -512,14 +521,10 @@ namespace MaterialDesignThemes.Wpf
             "DialogOpenedAttached", typeof(DialogOpenedEventHandler), typeof(DialogHost), new PropertyMetadata(default(DialogOpenedEventHandler)));
 
         public static void SetDialogOpenedAttached(DependencyObject element, DialogOpenedEventHandler value)
-        {
-            element.SetValue(DialogOpenedAttachedProperty, value);
-        }
+            => element.SetValue(DialogOpenedAttachedProperty, value);
 
         public static DialogOpenedEventHandler GetDialogOpenedAttached(DependencyObject element)
-        {
-            return (DialogOpenedEventHandler)element.GetValue(DialogOpenedAttachedProperty);
-        }
+            => (DialogOpenedEventHandler)element.GetValue(DialogOpenedAttachedProperty);
 
         public static readonly DependencyProperty DialogOpenedCallbackProperty = DependencyProperty.Register(
             nameof(DialogOpenedCallback), typeof(DialogOpenedEventHandler), typeof(DialogHost), new PropertyMetadata(default(DialogOpenedEventHandler)));
@@ -534,9 +539,7 @@ namespace MaterialDesignThemes.Wpf
         }
 
         protected void OnDialogOpened(DialogOpenedEventArgs eventArgs)
-        {
-            RaiseEvent(eventArgs);
-        }
+            => RaiseEvent(eventArgs);
 
         #endregion
 
@@ -565,14 +568,10 @@ namespace MaterialDesignThemes.Wpf
             "DialogClosingAttached", typeof(DialogClosingEventHandler), typeof(DialogHost), new PropertyMetadata(default(DialogClosingEventHandler)));
 
         public static void SetDialogClosingAttached(DependencyObject element, DialogClosingEventHandler value)
-        {
-            element.SetValue(DialogClosingAttachedProperty, value);
-        }
+            => element.SetValue(DialogClosingAttachedProperty, value);
 
         public static DialogClosingEventHandler GetDialogClosingAttached(DependencyObject element)
-        {
-            return (DialogClosingEventHandler)element.GetValue(DialogClosingAttachedProperty);
-        }
+            => (DialogClosingEventHandler)element.GetValue(DialogClosingAttachedProperty);
 
         public static readonly DependencyProperty DialogClosingCallbackProperty = DependencyProperty.Register(
             nameof(DialogClosingCallback), typeof(DialogClosingEventHandler), typeof(DialogHost), new PropertyMetadata(default(DialogClosingEventHandler)));
@@ -587,9 +586,7 @@ namespace MaterialDesignThemes.Wpf
         }
 
         protected void OnDialogClosing(DialogClosingEventArgs eventArgs)
-        {
-            RaiseEvent(eventArgs);
-        }
+            => RaiseEvent(eventArgs);
 
         #endregion
 
@@ -604,7 +601,6 @@ namespace MaterialDesignThemes.Wpf
         internal void InternalClose(object? parameter)
         {
             var currentSession = CurrentSession ?? throw new InvalidOperationException($"{nameof(DialogHost)} does not have a current session");
-            var dialogClosingEventArgs = new DialogClosingEventArgs(currentSession, DialogClosingEvent);
 
             currentSession.CloseParameter = parameter;
             currentSession.IsEnded = true;
@@ -612,8 +608,9 @@ namespace MaterialDesignThemes.Wpf
             //multiple ways of calling back that the dialog is closing:
             // * routed event
             // * the attached property (which should be applied to the button which opened the dialog
-            // * straight forward dependency property 
+            // * straight forward IsOpen dependency property 
             // * handler provided to the async show method
+            var dialogClosingEventArgs = new DialogClosingEventArgs(currentSession, DialogClosingEvent);
             OnDialogClosing(dialogClosingEventArgs);
             _attachedDialogClosingEventHandler?.Invoke(this, dialogClosingEventArgs);
             DialogClosingCallback?.Invoke(this, dialogClosingEventArgs);
@@ -634,7 +631,7 @@ namespace MaterialDesignThemes.Wpf
         /// <returns>The popup content.</returns>
         internal UIElement? FocusPopup()
         {
-            var child = _popup?.Child;
+            var child = _popup?.Child ?? _popupContentControl;
             if (child is null) return null;
 
             CommandManager.InvalidateRequerySuggested();
@@ -678,21 +675,14 @@ namespace MaterialDesignThemes.Wpf
 
                 if (_popupContentControl != null)
                 {
-                    switch (OpenDialogCommandDataContextSource)
+                    _popupContentControl.DataContext = OpenDialogCommandDataContextSource switch
                     {
-                        case DialogHostOpenDialogCommandDataContextSource.SenderElement:
-                            _popupContentControl.DataContext =
-                                (executedRoutedEventArgs.OriginalSource as FrameworkElement)?.DataContext;
-                            break;
-                        case DialogHostOpenDialogCommandDataContextSource.DialogHostInstance:
-                            _popupContentControl.DataContext = DataContext;
-                            break;
-                        case DialogHostOpenDialogCommandDataContextSource.None:
-                            _popupContentControl.DataContext = null;
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
+                        DialogHostOpenDialogCommandDataContextSource.SenderElement
+                            => (executedRoutedEventArgs.OriginalSource as FrameworkElement)?.DataContext,
+                        DialogHostOpenDialogCommandDataContextSource.DialogHostInstance => DataContext,
+                        DialogHostOpenDialogCommandDataContextSource.None => null,
+                        _ => throw new ArgumentOutOfRangeException(),
+                    };
                 }
 
                 DialogContent = executedRoutedEventArgs.Parameter;
@@ -704,9 +694,7 @@ namespace MaterialDesignThemes.Wpf
         }
 
         private void CloseDialogCanExecute(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
-        {
-            canExecuteRoutedEventArgs.CanExecute = CurrentSession != null;
-        }
+            => canExecuteRoutedEventArgs.CanExecute = CurrentSession != null;
 
         private void CloseDialogHandler(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
@@ -717,20 +705,14 @@ namespace MaterialDesignThemes.Wpf
             executedRoutedEventArgs.Handled = true;
         }
 
-        private string SelectState()
-        {
-            return IsOpen ? OpenStateName : ClosedStateName;
-        }
+        private string GetStateName()
+            => IsOpen ? OpenStateName : ClosedStateName;
 
         private void OnUnloaded(object sender, RoutedEventArgs routedEventArgs)
-        {
-            LoadedInstances.Remove(this);
-        }
+            => LoadedInstances.Remove(this);
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
-        {
-            LoadedInstances.Add(this);
-        }
+            => LoadedInstances.Add(this);
 
     }
 }

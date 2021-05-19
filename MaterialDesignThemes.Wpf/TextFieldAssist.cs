@@ -260,6 +260,16 @@ namespace MaterialDesignThemes.Wpf
         public static readonly DependencyProperty CharacterCounterStyleProperty =
             DependencyProperty.RegisterAttached("CharacterCounterStyle", typeof(Style), typeof(TextFieldAssist), new PropertyMetadata(null));
 
+        public static Visibility GetCharacterCounterVisibility(DependencyObject obj)
+            => (Visibility)obj.GetValue(CharacterCounterVisibilityProperty);
+
+        public static void SetCharacterCounterVisibility(DependencyObject obj, Visibility value)
+            => obj.SetValue(CharacterCounterVisibilityProperty, value);
+
+        public static readonly DependencyProperty CharacterCounterVisibilityProperty =
+            DependencyProperty.RegisterAttached("CharacterCounterVisibility", typeof(Visibility), typeof(TextFieldAssist),
+                new PropertyMetadata(Visibility.Visible));
+
         #region Methods
 
         private static void IncludeSpellingSuggestionsChanged(DependencyObject element, DependencyPropertyChangedEventArgs e)
@@ -420,21 +430,24 @@ namespace MaterialDesignThemes.Wpf
         private static void ApplyTextBoxViewMargin(Control textBox, Thickness margin)
         {
             if (margin.Equals(new Thickness(double.NegativeInfinity))
-                || textBox.Template == null)
+                || textBox.Template is null)
+            {
                 return;
+            }
 
             if (textBox is ComboBox
                 && textBox.Template.FindName("PART_EditableTextBox", textBox) is TextBox editableTextBox)
             {
                 textBox = editableTextBox;
-                if (textBox.Template == null)
-                    return;
+                if (textBox.Template is null) return;
                 textBox.ApplyTemplate();
             }
 
             if (textBox.Template.FindName("PART_ContentHost", textBox) is ScrollViewer scrollViewer
                 && scrollViewer.Content is FrameworkElement frameworkElement)
+            {
                 frameworkElement.Margin = margin;
+            }
         }
 
         /// <summary>
@@ -446,7 +459,7 @@ namespace MaterialDesignThemes.Wpf
             DependencyObject dependencyObject,
             DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            if (!(dependencyObject is Control box))
+            if (dependencyObject is not Control box)
             {
                 return;
             }
