@@ -166,6 +166,7 @@
                                                 Focusable="false"
                                                 HorizontalScrollBarVisibility="Hidden"
                                                 VerticalScrollBarVisibility="Hidden"
+                                                VerticalAlignment="Bottom"
                                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                 UseLayoutRounding="{TemplateBinding UseLayoutRounding}"
                                                 wpf:ScrollViewerAssist.IgnorePadding="True" />
@@ -286,6 +287,7 @@
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingOffset)" />
                                     </MultiBinding>
                                 </Setter.Value>
                             </Setter>
@@ -295,6 +297,7 @@
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingOffset)" />
                                     </MultiBinding>
                                 </Setter.Value>
                             </Setter>
@@ -321,6 +324,7 @@
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingOffset)" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="Padding" />
                                     </MultiBinding>
                                 </Setter.Value>

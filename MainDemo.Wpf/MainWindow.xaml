@@ -81,14 +81,14 @@
                         SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
                         ItemsSource="{Binding DemoItems}"
                         PreviewMouseLeftButtonUp="UIElement_OnPreviewMouseLeftButtonUp"
-                        AutomationProperties.Name="DemoPagesListBox">
+                        AutomationProperties.Name="DemoPagesListBox"
+                        Style="{StaticResource MaterialDesignNavigationPrimaryListBox}">
                         <ListBox.Resources>
                             <Style TargetType="ScrollBar" BasedOn="{StaticResource MaterialDesignScrollBarMinimal}"/>
                         </ListBox.Resources>
-
                         <ListBox.ItemTemplate>
                             <DataTemplate DataType="domain:DemoItem">
-                                <TextBlock Text="{Binding Name}" Margin="32 0 32 0" AutomationProperties.AutomationId="DemoItemPage"/>
+                                <TextBlock Text="{Binding Name}" Margin="24 4 0 4" AutomationProperties.AutomationId="DemoItemPage"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -142,7 +142,27 @@
                             DockPanel.Dock="Right"
                             PlacementMode="BottomAndAlignRightEdges"
                             StaysOpen="False">
+
                             <StackPanel>
+                                <Grid Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        Text="Enabled"
+                                        Margin="0 10 10 0"
+                                        Grid.Row="1"/>
+                                    <ToggleButton
+                                        x:Name="ControlsEnabledToggleButton"
+                                        Margin="0 10 0 0"
+                                        IsChecked="{Binding ControlsEnabled}"
+                                        Grid.Row="1"
+                                        Grid.Column="1"/>
+                                </Grid>
+
+                                <Separator/>
+                                
                                 <Button
                                     Content="Hello World"
                                     Click="MenuPopupButton_OnClick"/>

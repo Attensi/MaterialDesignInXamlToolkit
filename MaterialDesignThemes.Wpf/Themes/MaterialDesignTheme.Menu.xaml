@@ -7,7 +7,8 @@
     <converters:TextFieldHintVisibilityConverter x:Key="StringIsEmptyVisibilityConverter" IsEmptyValue="Collapsed" IsNotEmptyValue="Visible"/>
     <converters:BrushRoundConverter x:Key="BrushRoundConverter"/>
     
-    <ContextMenu x:Key="MaterialDesignDefaultContextMenu">
+    <ContextMenu x:Key="MaterialDesignDefaultContextMenu"
+                 FontFamily="{Binding PlacementTarget.FontFamily, RelativeSource={RelativeSource Self}}">
         <MenuItem Command="Cut" Icon="{iconPacks:Material ContentCut}" />
         <MenuItem Command="Copy" Icon="{iconPacks:Material ContentCopy}" />
         <MenuItem Command="Paste" Icon="{iconPacks:Material ContentPaste}" />

@@ -239,6 +239,7 @@
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingOffset)" />
                                     </MultiBinding>
                                 </Setter.Value>
                             </Setter>
@@ -248,6 +249,7 @@
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingOffset)" />
                                     </MultiBinding>
                                 </Setter.Value>
                             </Setter>
@@ -271,6 +273,7 @@
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontFamily" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="FontSize" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingScale)" />
+                                        <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(wpf:HintAssist.FloatingOffset)" />
                                         <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="ActualHeight" />
                                     </MultiBinding>
                                 </Setter.Value>
@@ -428,6 +431,7 @@
         <Setter Property="Validation.ErrorTemplate" Value="{StaticResource MaterialDesignValidationErrorTemplate}"/>
         <Setter Property="wpf:TextFieldAssist.UnderlineBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="wpf:HintAssist.Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+        <Setter Property="IsHeaderVisible" Value="True"/>
         <Setter Property="ClockStyle" Value="{DynamicResource MaterialDesignClock}" />
         <Setter Property="ClockHostContentControlStyle">
             <Setter.Value>
