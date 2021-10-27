@@ -141,7 +141,8 @@
                         <materialDesign:PopupBox
                             DockPanel.Dock="Right"
                             PlacementMode="BottomAndAlignRightEdges"
-                            StaysOpen="False">
+                            StaysOpen="False"
+                            VerticalAlignment="Center">
 
                             <StackPanel>
                                 <Grid Margin="10">
@@ -151,14 +152,12 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock
                                         Text="Enabled"
-                                        Margin="0 10 10 0"
-                                        Grid.Row="1"/>
+                                        Margin="0 10 10 0" />
                                     <ToggleButton
                                         x:Name="ControlsEnabledToggleButton"
                                         Margin="0 10 0 0"
                                         IsChecked="{Binding ControlsEnabled}"
-                                        Grid.Row="1"
-                                        Grid.Column="1"/>
+                                        Grid.Column="1" />
                                 </Grid>
 
                                 <Separator/>

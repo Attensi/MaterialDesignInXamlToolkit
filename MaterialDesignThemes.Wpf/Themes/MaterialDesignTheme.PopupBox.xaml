@@ -64,8 +64,10 @@
     <converters:NullableToVisibilityConverter x:Key="InvertedNullVisibilityConverter" NullValue="Visible" NotNullValue="Collapsed" />
     <converters:BrushRoundConverter x:Key="BrushRoundConverter"/>
 
-    <iconPacks:PackIconMaterial Kind="DotsVertical" x:Key="MaterialDesignPopupBoxToggleContent" x:Shared="False" Margin="4 0 4 0" Width="24" Height="24"
-                  Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=Foreground}" />
+    <iconPacks:PackIconMaterial Kind="DotsVertical" x:Key="MaterialDesignPopupBoxToggleContent" x:Shared="False" Margin="4" Width="24" Height="24"
+                  Foreground="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=wpf:PopupBox}, Path=Foreground}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center" />
 
     <Style TargetType="{x:Type wpf:PopupBox}" x:Key="MaterialDesignPopupBox">
         <Setter Property="ToggleContent" Value="{StaticResource MaterialDesignPopupBoxToggleContent}" />
@@ -83,6 +85,7 @@
                     <ControlTemplate.Resources>
                         <Style TargetType="Separator" BasedOn="{StaticResource MaterialDesignSeparator}"/>
                         <Style TargetType="ToggleButton" x:Key="ToggleButtonStyle">
+                            <Setter Property="Padding" Value="0" />
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="ToggleButton">
