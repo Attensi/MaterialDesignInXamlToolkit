@@ -29,8 +29,18 @@ namespace MaterialDesignThemes.Wpf
 
         private void SelectItemHandler(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
-            if (executedRoutedEventArgs.Parameter is int && !IsReadOnly)
-                Value = (int)executedRoutedEventArgs.Parameter;
+            if (executedRoutedEventArgs.Parameter is int parameter && !IsReadOnly)
+            {
+                var value = Value;
+                if (value == parameter && AllowDeselect)
+                {
+                    Value = 0;
+                }
+                else
+                {
+                    Value = parameter;
+                }
+            }
         }
 
         public static readonly DependencyProperty MinProperty = DependencyProperty.Register(
@@ -137,6 +147,15 @@ namespace MaterialDesignThemes.Wpf
         {
             get => (bool)GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, value);
+        }
+
+        public static readonly DependencyProperty AllowDeselectProperty = DependencyProperty.Register(
+            nameof(AllowDeselect), typeof(bool), typeof(RatingBar), new PropertyMetadata(default(bool)));
+
+        public bool AllowDeselect
+        {
+            get => (bool)GetValue(AllowDeselectProperty);
+            set => SetValue(AllowDeselectProperty, value);
         }
 
         private static void MaxPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
