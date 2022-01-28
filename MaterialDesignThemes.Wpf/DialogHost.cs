@@ -159,7 +159,7 @@ namespace MaterialDesignThemes.Wpf
         ///  Close a modal dialog.
         /// </summary>
         /// <param name="dialogIdentifier"> of the instance where the dialog should be closed. Typically this will match an identifer set in XAML. </param>
-        public static void Close(object dialogIdentifier)
+        public static void Close(object? dialogIdentifier)
             => Close(dialogIdentifier, null);
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace MaterialDesignThemes.Wpf
         /// </summary>
         /// <param name="dialogIdentifier">The identifier to use to retrieve the DialogHost</param>
         /// <returns>The DialogSession if one is in process, or null</returns>
-        public static DialogSession? GetDialogSession(object dialogIdentifier)
+        public static DialogSession? GetDialogSession(object? dialogIdentifier)
         {
             DialogHost dialogHost = GetInstance(dialogIdentifier);
             return dialogHost.CurrentSession;
@@ -194,7 +194,7 @@ namespace MaterialDesignThemes.Wpf
         /// </summary>
         /// <param name="dialogIdentifier">of the instance where the dialog should be closed. Typically this will match an identifer set in XAML.</param>
         /// <returns></returns>
-        public static bool IsDialogOpen(object dialogIdentifier) => GetDialogSession(dialogIdentifier)?.IsEnded == false;
+        public static bool IsDialogOpen(object? dialogIdentifier) => GetDialogSession(dialogIdentifier)?.IsEnded == false;
 
         private static DialogHost GetInstance(object? dialogIdentifier)
         {
@@ -207,7 +207,7 @@ namespace MaterialDesignThemes.Wpf
                 if (instance.TryGetTarget(out DialogHost? dialogInstance))
                 {
                     dialogInstance.Dispatcher.VerifyAccess();
-                    if (dialogIdentifier is null || Equals(dialogIdentifier, dialogInstance.Identifier))
+                    if (Equals(dialogIdentifier, dialogInstance.Identifier))
                     {
                         targets.Add(dialogInstance);
                     }
@@ -365,6 +365,15 @@ namespace MaterialDesignThemes.Wpf
             set => SetValue(IsOpenProperty, value);
         }
 
+        public static readonly DependencyProperty PlacementProperty = DependencyProperty.Register(
+            nameof(Placement), typeof(PlacementMode), typeof(DialogHost), new PropertyMetadata(PlacementMode.Center));
+
+        public PlacementMode Placement
+        {
+            get => (PlacementMode)GetValue(PlacementProperty);
+            set => SetValue(PlacementProperty, value);
+        }
+
         public static readonly DependencyProperty DialogContentProperty = DependencyProperty.Register(
             nameof(DialogContent), typeof(object), typeof(DialogHost), new PropertyMetadata(default(object)));
 
@@ -495,7 +504,7 @@ namespace MaterialDesignThemes.Wpf
         }
 
         public static readonly DependencyProperty DialogBackgroundProperty = DependencyProperty.Register(
-            nameof(DialogBackground), typeof(Brush), typeof(DialogHost), new PropertyMetadata(Brushes.White));
+            nameof(DialogBackground), typeof(Brush), typeof(DialogHost), new PropertyMetadata(null));
 
         /// <summary>
         /// Represents the brush for the Dialog's background

@@ -225,7 +225,7 @@
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="wpf:ListBoxItemAssist.ShowSelection" Value="True"/>
+        <Setter Property="wpf:ListBoxItemAssist.ShowSelection" Value="{Binding Path=(wpf:ListBoxItemAssist.ShowSelection), RelativeSource={RelativeSource AncestorType=ListBox}}"/>
         <Setter Property="wpf:RippleAssist.Feedback" Value="{Binding Foreground, RelativeSource={RelativeSource Self}, Converter={StaticResource BrushRoundConverter}}" />
         <Setter Property="Template">
             <Setter.Value>

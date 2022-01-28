@@ -54,7 +54,7 @@
 
                     <StackPanel Orientation="Horizontal">
                         <ToggleButton
-                            Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
+                            Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
 
                         <TextBlock
                             VerticalAlignment="Center"
@@ -75,7 +75,7 @@
                 Padding="16">
                 <StackPanel Orientation="Horizontal">
                     <ToggleButton
-                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
 
                     <TextBlock
                         VerticalAlignment="Center"
@@ -95,7 +95,7 @@
                 Padding="16">
                 <DockPanel>
                     <ToggleButton
-                        Style="{DynamicResource MaterialDesignSwitchAccentToggleButton}"
+                        Style="{StaticResource MaterialDesignSwitchAccentToggleButton}"
                         VerticalAlignment="Center"
                         DockPanel.Dock="Right"/>
 
@@ -103,7 +103,7 @@
                         Orientation="Horizontal"
                         materialDesign:RippleAssist.IsCentered="True">
                         <ToggleButton
-                            Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
+                            Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
 
                         <ComboBox
                             SelectedIndex="0"
@@ -132,7 +132,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <Button
-                                    Style="{DynamicResource MaterialDesignToolButton}">
+                                    Style="{StaticResource MaterialDesignToolButton}">
                                     <iconPacks:PackIconMaterial
                                         Kind="Magnify"
                                         Opacity=".56"/>
@@ -148,7 +148,7 @@
                                     VerticalAlignment="Center"/>
 
                                 <Button
-                                    Style="{DynamicResource MaterialDesignToolButton}"
+                                    Style="{StaticResource MaterialDesignToolButton}"
                                     Grid.Column="2">
                                     <iconPacks:PackIconMaterial
                                         Kind="Microphone"
@@ -159,7 +159,7 @@
                         </materialDesign:ColorZone>
 
                         <Button
-                            Style="{DynamicResource MaterialDesignToolForegroundButton}"
+                            Style="{StaticResource MaterialDesignToolForegroundButton}"
                             Margin="8 0 0 0"
                             Panel.ZIndex="0">
                             <iconPacks:PackIconMaterial Kind="Send" />
@@ -182,7 +182,7 @@
                 ClipToBounds="False">
                 <StackPanel Orientation="Horizontal">
                     <ToggleButton
-                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
 
                     <TextBlock
                         VerticalAlignment="Center"
@@ -202,7 +202,7 @@
                 Padding="16">
                 <StackPanel Orientation="Horizontal">
                     <ToggleButton
-                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
 
                     <TextBlock
                         VerticalAlignment="Center"
@@ -226,7 +226,7 @@
 
                 <StackPanel Orientation="Horizontal">
                     <ToggleButton
-                        Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
+                        Style="{StaticResource MaterialDesignHamburgerToggleButton}"/>
 
                     <TextBlock
                         VerticalAlignment="Center"

@@ -1,0 +1,246 @@
+﻿<UserControl
+    x:Class="MaterialDesign3Demo.MenusAndToolBars"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="300">
+    <DockPanel>
+        <smtx:XamlDisplay
+            UniqueKey="menus_1"
+            DockPanel.Dock="Top"
+            Margin="5 5 0 5">
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_File">
+                    <MenuItem
+                        Header="Save"
+                        Icon="{iconPacks:Material Kind=ContentSave}">
+                    </MenuItem>
+                    
+                    <MenuItem Header="Save As.."/>
+
+                    <MenuItem
+                        Header="Exit"
+                        InputGestureText="Ctrl+E"
+                        Icon="{iconPacks:Material Kind=ExitToApp}"/>
+
+                    <Separator/>
+                    
+                    <MenuItem
+                        Header="Excellent"
+                        IsCheckable="True"
+                        IsChecked="True"/>
+                    
+                    <MenuItem
+                        Header="Rubbish"
+                        IsCheckable="True"/>
+                    
+                    <MenuItem
+                        Header="Dig Deeper"
+                        InputGestureText="Ctrl+D">
+                        <MenuItem
+                            Header="Enlightenment?"
+                            IsCheckable="True"/>
+                        <MenuItem
+                            Header="Disappointment"
+                            IsCheckable="True"/>
+                    </MenuItem>
+                    
+                    <MenuItem
+                        Header="Look Deeper"
+                        InputGestureText="Ctrl+D">
+                        <MenuItem Header="Plain"/>
+                        <MenuItem Header="Ice Cream"/>
+                    </MenuItem>
+                </MenuItem>
+                
+                <MenuItem Header="_Edit">
+                    <MenuItem
+                        Header="_Cut"
+                        Command="Cut"
+                        Icon="{iconPacks:Material Kind=ContentCut}"/>
+
+                    <MenuItem
+                        Header="_Copy"
+                        Command="Copy"
+                        Icon="{iconPacks:Material Kind=ContentCopy}"/>
+
+                    <MenuItem
+                        Header="_Paste"
+                        Command="Paste"
+                        Icon="{iconPacks:Material Kind=ContentPaste}"/>
+                </MenuItem>
+            </Menu>
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay
+            UniqueKey="menus_2"
+            DockPanel.Dock="Top"
+            Margin="5 0 0 0">
+            <ToolBarTray>
+                <ToolBar
+                    Style="{StaticResource MaterialDesignToolBar}"
+                    ClipToBounds="False">
+                    <Button
+                        ToolTip="Follow me on Twitter"
+                        Click="TwitterButton_OnClick"
+                        Content="{iconPacks:Material Kind=Twitter}"/>
+
+                    <Button
+                        ToolTip="Save"
+                        Content="{iconPacks:Material Kind=ContentSave}"/>
+
+                    <Separator/>
+
+                    <Button
+                        Command="Cut"
+                        ToolTip="Cut"
+                        ToolBar.OverflowMode="AsNeeded"
+                        Content="{iconPacks:Material Kind=ContentCut}"/>
+                    
+                    <Button
+                        Command="Copy"
+                        ToolTip="Copy that stuff"
+                        ToolBar.OverflowMode="AsNeeded"
+                        Content="{iconPacks:Material Kind=ContentCopy}"/>
+                    
+                    <Separator/>
+
+                    <Button
+                        Command="Paste"
+                        ToolTip="Paste some stuff"
+                        ToolBar.OverflowMode="AsNeeded"
+                        Content="{iconPacks:Material Kind=ContentPaste}"/>
+                    
+                    <!-- when badging in a toolbar, make sure the parent ToolBar.ClipToBounds="False", and
+                     manually apply the button style -->
+                    <materialDesign:Badged
+                        ToolBar.OverflowMode="AsNeeded"
+                        Badge="{iconPacks:Material Alert}"
+                        CornerRadius="5">
+                        <Button
+                            ToolTip="Badge it up!"
+                            Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                            Content="{iconPacks:Material Kind=AirplaneTakeoff}"/>
+                    </materialDesign:Badged>
+                    
+                    <Separator/>
+                    
+                    <ListBox>
+                        <ListBoxItem ToolTip="This is a lonley toggle with TextBlock instead of icon">
+                            <TextBlock Text="W"/>
+                        </ListBoxItem>
+                    </ListBox>
+                    
+                    <Separator/>
+                    
+                    <ListBox SelectedIndex="0">
+                        <ListBox.ToolTip>
+                            <StackPanel>
+                                <TextBlock Text="MaterialDesignToolToggleFlatListBox"/>
+                                <TextBlock Text="Exclusive selection"/>
+                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour"/>
+                            </StackPanel>
+                        </ListBox.ToolTip>
+
+                        <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignLeft}"/>
+                        <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignCenter}"/>
+                        <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignRight}"/>
+                        <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignJustify}"/>
+                    </ListBox>
+                    
+                    <Separator/>
+                    
+                    <ListBox SelectionMode="Extended">
+                        <ListBox.ToolTip>
+                            <StackPanel>
+                                <TextBlock Text="MaterialDesignToolToggleListBox"/>
+                                <TextBlock Text="Multiple selection"/>
+                                <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour"/>
+                            </StackPanel>
+                        </ListBox.ToolTip>
+
+                        <ListBoxItem Content="{iconPacks:Material Kind=FormatBold}"/>
+                        <ListBoxItem Content="{iconPacks:Material Kind=FormatItalic}"/>
+                        <ListBoxItem Content="{iconPacks:Material Kind=FormatUnderline}"/>
+                    </ListBox>
+                    
+                    <Separator/>
+                    
+                    <Label
+                        Content="Font size:"
+                        VerticalAlignment="Center"/>
+                    
+                    <ComboBox>
+                        <ComboBoxItem Content="10"/>
+                        <ComboBoxItem IsSelected="True" Content="12"/>
+                        <ComboBoxItem Content="14"/>
+                        <ComboBoxItem Content="16"/>
+                    </ComboBox>
+
+                    <CheckBox Content="Check"/>
+
+                    <Button
+                        ToolTip="Take a nap"
+                        ToolBar.OverflowMode="Always"
+                        Content="{iconPacks:Material Kind=Bed}"/>
+
+                    <RadioButton
+                        GroupName="XXX"
+                        Content="Radio"/>
+                    
+                    <RadioButton
+                        GroupName="XXX"
+                        Content="Ga Ga"/>
+                    
+                    <Separator/>
+
+                    <RadioButton
+                        GroupName="YYY"
+                        Style="{StaticResource MaterialDesignToolRadioButton}"
+                        Content="{iconPacks:Material Kind=Radio}"/>
+
+                    <RadioButton
+                        GroupName="YYY"
+                        Style="{StaticResource MaterialDesignToolRadioButton}"
+                        Content="{iconPacks:Material Kind=EmoticonPoop}"/>
+                    
+                    <Separator/>
+                    
+                    <ToggleButton/>
+                </ToolBar>
+            </ToolBarTray>
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay
+            UniqueKey="menus_3"
+            Margin="16"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left">
+            <TextBox Text="With Default Context Menu"/>
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay
+            UniqueKey="menus_4"
+            Margin="16"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left">
+            <TextBox Text="With Custom Context Menu">
+                <TextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Hello World"/>
+                        <MenuItem Header="Clickety Click">
+                            <MenuItem Header="Clackety Clack"/>
+                        </MenuItem>
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+        </smtx:XamlDisplay>
+    </DockPanel>
+</UserControl>
+

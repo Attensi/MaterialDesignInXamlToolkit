@@ -39,7 +39,12 @@ namespace MaterialDesignDemo.Domain
             _demoItemsView = CollectionViewSource.GetDefaultView(DemoItems);
             _demoItemsView.Filter = DemoItemsFilter;
 
-            HomeCommand = new AnotherCommandImplementation(_ => { SelectedIndex = 0; });
+            HomeCommand = new AnotherCommandImplementation(
+                _ =>
+                {
+                    SearchKeyword = string.Empty;
+                    SelectedIndex = 0;
+                });
 
             MovePrevCommand = new AnotherCommandImplementation(
                 _ =>
@@ -236,6 +241,15 @@ namespace MaterialDesignDemo.Domain
                     DocumentationLink.DemoPageLink<ListsAndGridsViewModel>("Demo View Model", "Domain"),
                     DocumentationLink.StyleLink("ListBox"),
                     DocumentationLink.StyleLink("ListView")
+                });
+
+            yield return new DemoItem(
+                "Tabs",
+                typeof(Tabs),
+                new[]
+                {
+                    DocumentationLink.DemoPageLink<Tabs>(),
+                    DocumentationLink.StyleLink("TabControl")
                 });
 
             yield return new DemoItem(

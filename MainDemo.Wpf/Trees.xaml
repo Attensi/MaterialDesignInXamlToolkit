@@ -293,7 +293,7 @@
                                         Margin="2">
                                         <DockPanel LastChildFill="True">
                                             <Button
-                                                Style="{DynamicResource MaterialDesignToolForegroundButton}"
+                                                Style="{StaticResource MaterialDesignToolForegroundButton}"
                                                 Margin="8 -6 8 -6"
                                                 DockPanel.Dock="Right"
                                                 Content="{iconPacks:Material Magnify}"/>
@@ -360,7 +360,7 @@
                                         Margin="2">
                                         <DockPanel LastChildFill="True">
                                             <Button
-                                                Style="{DynamicResource MaterialDesignToolForegroundButton}"
+                                                Style="{StaticResource MaterialDesignToolForegroundButton}"
                                                 Margin="8 -6 8 -6"
                                                 DockPanel.Dock="Right"
                                                 Content="{iconPacks:Material Magnify}"/>
