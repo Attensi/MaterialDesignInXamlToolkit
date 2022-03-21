@@ -14,8 +14,8 @@
         <smtx:XamlDisplay
             UniqueKey="menus_1"
             DockPanel.Dock="Top"
-            Margin="5 5 0 5">
-            <Menu IsMainMenu="True">
+            Margin="5 5 0 15">
+            <Menu IsMainMenu="True" Height="48">
                 <MenuItem Header="_File">
                     <MenuItem
                         Header="Save"
@@ -76,6 +76,46 @@
                         Icon="{iconPacks:Material Kind=ContentPaste}"/>
                 </MenuItem>
             </Menu>
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay
+            UniqueKey="bigMenu"
+            DockPanel.Dock="Top"
+            Margin="5 5 0 5">
+            <materialDesign:Card Height="80">
+                <Menu>
+                    <MenuItem Header="Big">
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                    </MenuItem>
+                    <MenuItem Header="Menu">
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                    </MenuItem>
+                </Menu>
+            </materialDesign:Card>
+        </smtx:XamlDisplay>
+
+        <smtx:XamlDisplay
+            UniqueKey="smallMenu"
+            DockPanel.Dock="Top"
+            Margin="5 5 0 20">
+            <materialDesign:Card Height="25">
+                <Menu>
+                    <MenuItem Header="Small">
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                    </MenuItem>
+                    <MenuItem Header="Menu">
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                        <MenuItem Header="Test 1"/>
+                    </MenuItem>
+                </Menu>
+            </materialDesign:Card>
         </smtx:XamlDisplay>
 
         <smtx:XamlDisplay

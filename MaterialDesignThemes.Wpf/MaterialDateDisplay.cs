@@ -144,7 +144,7 @@ namespace MaterialDesignThemes.Wpf
 
         private void SetDisplayDateOfCalendar(DateTime displayDate)
         {
-            var calendarControl = this.GetVisualAncestry().OfType<Calendar>().FirstOrDefault();
+            Calendar? calendarControl = this.GetVisualAncestry().OfType<Calendar>().FirstOrDefault();
 
             if (calendarControl != null)
             {
