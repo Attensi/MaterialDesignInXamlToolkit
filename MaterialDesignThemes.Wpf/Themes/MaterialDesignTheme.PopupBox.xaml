@@ -71,6 +71,7 @@
 
     <Style TargetType="{x:Type wpf:PopupBox}" x:Key="MaterialDesignPopupBox">
         <Setter Property="ToggleContent" Value="{StaticResource MaterialDesignPopupBoxToggleContent}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignCardBackground}" />
         <Setter Property="wpf:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignFlatButtonRipple}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="PopupHorizontalOffset" Value="5"/>
@@ -117,6 +118,7 @@
                                      PopupAnimation="Fade"
                                      AllowsTransparency="True">
                             <wpf:Card Content="{TemplateBinding PopupContent}" ContentTemplate="{TemplateBinding PopupContentTemplate}"
+                                      Background="{TemplateBinding Background}"
                                       Foreground="{DynamicResource MaterialDesignBody}"
                                       Padding="{TemplateBinding Padding}"
                                       RenderOptions.ClearTypeHint="Enabled"
