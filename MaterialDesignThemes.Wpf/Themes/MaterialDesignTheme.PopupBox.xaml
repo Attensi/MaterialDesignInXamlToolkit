@@ -11,11 +11,11 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type Button}" x:Key="MaterialDesignPopupBoxButton">
-        <Setter Property="VerticalContentAlignment" Value="Bottom" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="Padding" Value="16 0 16 16" />
+        <Setter Property="Padding" Value="12,8" />
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}" />
-        <Setter Property="MinHeight" Value="48" />
+        <Setter Property="MinHeight" Value="32" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -71,14 +71,14 @@
 
     <Style TargetType="{x:Type wpf:PopupBox}" x:Key="MaterialDesignPopupBox">
         <Setter Property="ToggleContent" Value="{StaticResource MaterialDesignPopupBoxToggleContent}" />
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignToolBackground}" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignPopupBoxBackground}" />
         <Setter Property="wpf:RippleAssist.Feedback" Value="{DynamicResource MaterialDesignFlatButtonRipple}" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="PopupHorizontalOffset" Value="5"/>
         <Setter Property="PopupVerticalOffset" Value="5"/>
         <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth3" />
         <Setter Property="TextElement.FontWeight" Value="Normal" />
-        <Setter Property="Padding" Value="0 8 0 8" />
+        <Setter Property="Padding" Value="0 6 0 6" />
         <Setter Property="Focusable" Value="True" />
         <Setter Property="PopupUniformCornerRadius" Value="4"/>
         <Setter Property="Template">

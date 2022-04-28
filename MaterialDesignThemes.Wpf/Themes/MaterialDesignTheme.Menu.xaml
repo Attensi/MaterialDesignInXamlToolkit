@@ -39,7 +39,7 @@
             Value="true" />
         <Setter
             Property="Height"
-            Value="16" />
+            Value="13" />
         <Setter
             Property="Template">
             <Setter.Value>
