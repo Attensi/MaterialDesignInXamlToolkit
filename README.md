@@ -3,5 +3,5 @@
 - Removed theming
 - Removed MaterialDesignColors
 - Removed MahApps.Metro and Dragablz integrations
-- Only targets `net5.0-windows`
+- Only targets `net6.0-windows`
 - Various minor style edits
