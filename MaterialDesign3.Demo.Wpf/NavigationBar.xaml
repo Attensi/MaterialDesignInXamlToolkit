@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:MaterialDesign3Demo"
              xmlns:domain="clr-namespace:MaterialDesign3Demo.Domain"
@@ -24,7 +25,7 @@
                                 VerticalAlignment="Bottom"
                                 materialDesign:ButtonAssist.CornerRadius="16"
                                 Margin="16">
-                            <materialDesign:PackIcon Kind="PencilOutline"
+                            <iconPacks:PackIconMaterial Kind="PencilOutline"
                                                      Width="24"
                                                      Height="24"/>
                         </Button>
@@ -55,8 +56,8 @@
                                 <ListBoxItem >
                                     <ListBoxItem.Style>
                                         <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesign3.NavigationBarPrimaryListBoxItem}">
-                                            <Setter Property="materialDesign:NavigationBarAssist.SelectedIcon" Value="Receipt"/>
-                                            <Setter Property="materialDesign:NavigationBarAssist.UnselectedIcon" Value="ReceiptOutline"/>
+                                            <Setter Property="materialDesign:NavigationBarAssist.SelectedIcon" Value="PaperRoll"/>
+                                            <Setter Property="materialDesign:NavigationBarAssist.UnselectedIcon" Value="PaperRollOutline"/>
                                         </Style>
                                     </ListBoxItem.Style>
                                     <TextBlock Text="text 3"/>
@@ -133,7 +134,7 @@
                         VerticalAlignment="Bottom"
                         materialDesign:ButtonAssist.CornerRadius="16"
                         Margin="16">
-                            <materialDesign:PackIcon Kind="PencilOutline" Width="24" Height="24"/>
+                            <iconPacks:PackIconMaterial Kind="PencilOutline" Width="24" Height="24"/>
                         </Button>
 
                         <Grid Height="80" Background="#25232A">
@@ -172,7 +173,7 @@
                                 VerticalAlignment="Bottom"
                                 materialDesign:ButtonAssist.CornerRadius="28"
                                 Margin="16">
-                            <materialDesign:PackIcon Kind="PencilOutline" Width="36" Height="36"/>
+                            <iconPacks:PackIconMaterial Kind="PencilOutline" Width="36" Height="36"/>
                         </Button>
 
                         <Grid Height="160"

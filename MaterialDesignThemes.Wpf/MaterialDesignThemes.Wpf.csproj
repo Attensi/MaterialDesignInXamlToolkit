@@ -11,11 +11,10 @@
     <AssemblyVersion>$(MDIXVersion)</AssemblyVersion>
     <NoWarn>CS1591;CS1574</NoWarn>
     <DocumentationFile>bin\$(Configuration)\MaterialDesignThemes.Wpf.xml</DocumentationFile>
-    <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.8.0" />
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>

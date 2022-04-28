@@ -6,7 +6,6 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
     <ApplicationManifest>App.manifest</ApplicationManifest>
-    <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>

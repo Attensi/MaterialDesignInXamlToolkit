@@ -64,8 +64,8 @@
                         <ListBoxItem >
                             <ListBoxItem.Style>
                                 <Style TargetType="ListBoxItem" BasedOn="{StaticResource MaterialDesign3.NavigationRailPrimaryListBoxItem}">
-                                    <Setter Property="materialDesign:NavigationRailAssist.SelectedIcon" Value="Receipt"/>
-                                    <Setter Property="materialDesign:NavigationRailAssist.UnselectedIcon" Value="ReceiptOutline"/>
+                                    <Setter Property="materialDesign:NavigationRailAssist.SelectedIcon" Value="PaperRoll"/>
+                                    <Setter Property="materialDesign:NavigationRailAssist.UnselectedIcon" Value="PaperRollOutline"/>
                                     <Setter Property="materialDesign:NavigationRailAssist.IconSize" Value="16"/>
                                 </Style>
                             </ListBoxItem.Style>

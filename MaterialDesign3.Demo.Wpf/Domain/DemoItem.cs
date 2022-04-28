@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using MahApps.Metro.IconPacks;
 using MaterialDesignThemes.Wpf;
 
 namespace MaterialDesign3Demo.Domain
@@ -19,7 +20,7 @@ namespace MaterialDesign3Demo.Domain
         private int _notificationNumber = 0;
 
         public DemoItem(string name, Type contentType, IEnumerable<DocumentationLink> documentation,
-            PackIconKind selectedIcon, PackIconKind unselectedIcon, object? dataContext = null)
+            PackIconMaterialKind selectedIcon, PackIconMaterialKind unselectedIcon, object? dataContext = null)
         {
             Name = name;
             _contentType = contentType;
@@ -35,8 +36,8 @@ namespace MaterialDesign3Demo.Domain
 
         public object? Content => _content ??= CreateContent();
 
-        public PackIconKind SelectedIcon { get; set; }
-        public PackIconKind UnselectedIcon { get; set; }
+        public PackIconMaterialKind SelectedIcon { get; set; }
+        public PackIconMaterialKind UnselectedIcon { get; set; }
 
         public object? Notifications
         {

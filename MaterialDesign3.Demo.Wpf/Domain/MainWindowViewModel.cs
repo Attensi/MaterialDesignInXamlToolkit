@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Windows.Data;
 using System.Windows.Controls;
+using MahApps.Metro.IconPacks;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Transitions;
 
@@ -28,8 +29,8 @@ namespace MaterialDesign3Demo.Domain
                             "WIKI"),
                         DocumentationLink.DemoPageLink<Home>()
                     },
-                    selectedIcon: PackIconKind.Home,
-                    unselectedIcon: PackIconKind.HomeOutline)
+                    selectedIcon: PackIconMaterialKind.Home,
+                    unselectedIcon: PackIconMaterialKind.HomeOutline)
             };
 
             foreach (var item in GenerateDemoItems(snackbarMessageQueue).OrderBy(i => i.Name))
@@ -148,8 +149,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("PopupBox"),
                     DocumentationLink.ApiLink<PopupBox>()
                 },
-                selectedIcon: PackIconKind.GestureTapHold,
-                unselectedIcon: PackIconKind.GestureTapHold);
+                selectedIcon: PackIconMaterialKind.GestureTapHold,
+                unselectedIcon: PackIconMaterialKind.GestureTapHold);
 
             yield return new DemoItem(
                 "Toggles",
@@ -161,8 +162,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("CheckBox"),
                     DocumentationLink.ApiLink<Toggles>()
                 },
-                selectedIcon: PackIconKind.ToggleSwitch,
-                unselectedIcon: PackIconKind.ToggleSwitchOffOutline);
+                selectedIcon: PackIconMaterialKind.ToggleSwitch,
+                unselectedIcon: PackIconMaterialKind.ToggleSwitchOffOutline);
 
             yield return new DemoItem(
                 "Rating Bar",
@@ -173,8 +174,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("RatingBar"),
                     DocumentationLink.ApiLink<RatingBar>()
                 },
-                selectedIcon: PackIconKind.Star,
-                unselectedIcon: PackIconKind.StarOutline);
+                selectedIcon: PackIconMaterialKind.Star,
+                unselectedIcon: PackIconMaterialKind.StarOutline);
 
             yield return new DemoItem(
                 "Fields",
@@ -184,8 +185,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<Fields>(),
                     DocumentationLink.StyleLink("TextBox")
                 },
-                selectedIcon: PackIconKind.Pencil,
-                unselectedIcon: PackIconKind.PencilOutline);
+                selectedIcon: PackIconMaterialKind.Pencil,
+                unselectedIcon: PackIconMaterialKind.PencilOutline);
 
             yield return new DemoItem(
                 "Fields line up",
@@ -194,8 +195,8 @@ namespace MaterialDesign3Demo.Domain
                 {
                     DocumentationLink.DemoPageLink<FieldsLineUp>()
                 },
-                selectedIcon: PackIconKind.PencilBox,
-                unselectedIcon: PackIconKind.PencilBoxOutline);
+                selectedIcon: PackIconMaterialKind.PencilBox,
+                unselectedIcon: PackIconMaterialKind.PencilBoxOutline);
 
             yield return new DemoItem(
                 "ComboBoxes",
@@ -205,8 +206,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<ComboBoxes>(),
                     DocumentationLink.StyleLink("ComboBox")
                 },
-                selectedIcon: PackIconKind.CheckboxMarked,
-                unselectedIcon: PackIconKind.CheckboxMarkedOutline);
+                selectedIcon: PackIconMaterialKind.CheckboxMarked,
+                unselectedIcon: PackIconMaterialKind.CheckboxMarkedOutline);
 
             yield return new DemoItem(
                 "Pickers",
@@ -218,8 +219,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("DatePicker"),
                     DocumentationLink.ApiLink<TimePicker>()
                 },
-                selectedIcon: PackIconKind.Clock,
-                unselectedIcon: PackIconKind.ClockOutline);
+                selectedIcon: PackIconMaterialKind.Clock,
+                unselectedIcon: PackIconMaterialKind.ClockOutline);
 
             yield return new DemoItem(
                 "Sliders",
@@ -229,8 +230,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<Sliders>(),
                     DocumentationLink.StyleLink("Slider")
                 },
-                selectedIcon: PackIconKind.TuneVariant,
-                unselectedIcon: PackIconKind.TuneVariant);
+                selectedIcon: PackIconMaterialKind.TuneVariant,
+                unselectedIcon: PackIconMaterialKind.TuneVariant);
 
             yield return new DemoItem(
                 "Chips",
@@ -241,8 +242,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("Chip"),
                     DocumentationLink.ApiLink<Chip>()
                 },
-                selectedIcon: PackIconKind.None,
-                unselectedIcon: PackIconKind.None);
+                selectedIcon: PackIconMaterialKind.None,
+                unselectedIcon: PackIconMaterialKind.None);
 
             yield return new DemoItem(
                 "Typography",
@@ -252,8 +253,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<Typography>(),
                     DocumentationLink.StyleLink("TextBlock")
                 },
-                selectedIcon: PackIconKind.FormatSize,
-                unselectedIcon: PackIconKind.FormatTitle)
+                selectedIcon: PackIconMaterialKind.FormatSize,
+                unselectedIcon: PackIconMaterialKind.FormatTitle)
             {
                 HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Auto
             };
@@ -267,8 +268,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("Card"),
                     DocumentationLink.ApiLink<Card>()
                 },
-                selectedIcon: PackIconKind.Card,
-                unselectedIcon: PackIconKind.CardOutline);
+                selectedIcon: PackIconMaterialKind.Card,
+                unselectedIcon: PackIconMaterialKind.CardOutline);
 
             yield return new DemoItem(
                 "Colour Zones",
@@ -278,8 +279,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<ColorZones>(),
                     DocumentationLink.ApiLink<ColorZone>()
                 },
-                selectedIcon: PackIconKind.Subtitles,
-                unselectedIcon: PackIconKind.SubtitlesOutline);
+                selectedIcon: PackIconMaterialKind.Subtitles,
+                unselectedIcon: PackIconMaterialKind.SubtitlesOutline);
 
             yield return new DemoItem(
                 "Lists",
@@ -291,8 +292,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("ListBox"),
                     DocumentationLink.StyleLink("ListView")
                 },
-                selectedIcon: PackIconKind.FormatListBulletedSquare,
-                unselectedIcon: PackIconKind.FormatListCheckbox);
+                selectedIcon: PackIconMaterialKind.FormatListBulletedSquare,
+                unselectedIcon: PackIconMaterialKind.FormatListCheckbox);
 
             yield return new DemoItem(
                 "Trees",
@@ -303,8 +304,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<TreesViewModel>("Demo View Model"),
                     DocumentationLink.StyleLink("TreeView")
                 },
-                selectedIcon: PackIconKind.FileTree,
-                unselectedIcon: PackIconKind.FileTreeOutline);
+                selectedIcon: PackIconMaterialKind.FileTree,
+                unselectedIcon: PackIconMaterialKind.FileTreeOutline);
 
             yield return new DemoItem(
                 "Data Grids",
@@ -315,8 +316,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<ListsAndGridsViewModel>("Demo View Model", "Domain"),
                     DocumentationLink.StyleLink("DataGrid")
                 },
-                selectedIcon: PackIconKind.ViewGrid,
-                unselectedIcon: PackIconKind.ViewGridOutline);
+                selectedIcon: PackIconMaterialKind.ViewGrid,
+                unselectedIcon: PackIconMaterialKind.ViewGridOutline);
 
             yield return new DemoItem(
                 "Expander",
@@ -326,8 +327,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<Expander>(),
                     DocumentationLink.StyleLink("Expander")
                 },
-                selectedIcon: PackIconKind.UnfoldMoreHorizontal,
-                unselectedIcon: PackIconKind.UnfoldMoreHorizontal);
+                selectedIcon: PackIconMaterialKind.UnfoldMoreHorizontal,
+                unselectedIcon: PackIconMaterialKind.UnfoldMoreHorizontal);
 
             yield return new DemoItem(
                 "Group Boxes",
@@ -337,8 +338,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<GroupBoxes>(),
                     DocumentationLink.StyleLink("GroupBox")
                 },
-                selectedIcon: PackIconKind.TextBoxMultiple,
-                unselectedIcon: PackIconKind.TextBoxMultipleOutline);
+                selectedIcon: PackIconMaterialKind.TextBoxMultiple,
+                unselectedIcon: PackIconMaterialKind.TextBoxMultipleOutline);
 
             yield return new DemoItem(
                 "Menus & Tool Bars",
@@ -349,8 +350,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.StyleLink("Menu"),
                     DocumentationLink.StyleLink("ToolBar")
                 },
-                selectedIcon: PackIconKind.DotsHorizontalCircle,
-                unselectedIcon: PackIconKind.DotsHorizontalCircleOutline);
+                selectedIcon: PackIconMaterialKind.DotsHorizontalCircle,
+                unselectedIcon: PackIconMaterialKind.DotsHorizontalCircleOutline);
 
             yield return new DemoItem(
                 "Progress Indicators",
@@ -360,8 +361,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<Progress>(),
                     DocumentationLink.StyleLink("ProgressBar")
                 },
-                selectedIcon: PackIconKind.ProgressClock,
-                unselectedIcon: PackIconKind.ProgressClock);
+                selectedIcon: PackIconMaterialKind.ProgressClock,
+                unselectedIcon: PackIconMaterialKind.ProgressClock);
 
             yield return new DemoItem(
                 "Navigation Rail",
@@ -371,8 +372,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<NavigationRail>(),
                     DocumentationLink.StyleLink("NavigaionRail"),
                 },
-                selectedIcon: PackIconKind.NavigationVariant,
-                unselectedIcon: PackIconKind.NavigationVariantOutline)
+                selectedIcon: PackIconMaterialKind.NavigationVariant,
+                unselectedIcon: PackIconMaterialKind.NavigationVariantOutline)
             {
                 HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Auto
             };
@@ -385,8 +386,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<NavigationBar>(),
                     DocumentationLink.StyleLink("NavigaionBar"),
                 },
-                selectedIcon: PackIconKind.NavigationVariant,
-                unselectedIcon: PackIconKind.NavigationVariantOutline)
+                selectedIcon: PackIconMaterialKind.NavigationVariant,
+                unselectedIcon: PackIconMaterialKind.NavigationVariantOutline)
             {
                 HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Auto
             };
@@ -401,8 +402,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<DialogsViewModel>("Demo View Model", "Domain"),
                     DocumentationLink.ApiLink<DialogHost>()
                 },
-                selectedIcon: PackIconKind.CommentAlert,
-                unselectedIcon: PackIconKind.CommentAlertOutline)
+                selectedIcon: PackIconMaterialKind.CommentAlert,
+                unselectedIcon: PackIconMaterialKind.CommentAlertOutline)
             {
                 HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Auto
             };
@@ -415,8 +416,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.DemoPageLink<Drawers>("Demo View"),
                     DocumentationLink.ApiLink<DrawerHost>()
                 },
-                selectedIcon: PackIconKind.ExpandAll,
-                unselectedIcon: PackIconKind.ExpandAll);
+                selectedIcon: PackIconMaterialKind.ExpandAll,
+                unselectedIcon: PackIconMaterialKind.ExpandAll);
 
             yield return new DemoItem(
                 "Snackbar",
@@ -429,8 +430,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.ApiLink<Snackbar>(),
                     DocumentationLink.ApiLink<ISnackbarMessageQueue>()
                 },
-                selectedIcon: PackIconKind.InformationCircle,
-                unselectedIcon: PackIconKind.InformationCircleOutline)
+                selectedIcon: PackIconMaterialKind.Information,
+                unselectedIcon: PackIconMaterialKind.InformationOutline)
             {
                 HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Auto
             };
@@ -446,8 +447,8 @@ namespace MaterialDesign3Demo.Domain
                     DocumentationLink.ApiLink<TransitionerSlide>("Transitions"),
                     DocumentationLink.ApiLink<TransitioningContent>("Transitions"),
                 },
-                selectedIcon: PackIconKind.TransitionMasked,
-                unselectedIcon: PackIconKind.Transition);
+                selectedIcon: PackIconMaterialKind.TransitionMasked,
+                unselectedIcon: PackIconMaterialKind.Transition);
 
             yield return new DemoItem(
                 "Shadows",
@@ -456,8 +457,8 @@ namespace MaterialDesign3Demo.Domain
                 {
                     DocumentationLink.DemoPageLink<Shadows>(),
                 },
-                selectedIcon: PackIconKind.BoxShadow,
-                unselectedIcon: PackIconKind.BoxShadow);
+                selectedIcon: PackIconMaterialKind.BoxShadow,
+                unselectedIcon: PackIconMaterialKind.BoxShadow);
         }
 
         private bool DemoItemsFilter(object obj)
