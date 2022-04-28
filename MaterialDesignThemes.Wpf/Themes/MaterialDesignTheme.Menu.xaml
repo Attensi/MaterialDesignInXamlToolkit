@@ -61,7 +61,7 @@
         BasedOn="{x:Null}">
         <Setter
             Property="Background"
-            Value="{DynamicResource MaterialDesignPaper}" />
+            Value="Transparent" />
         <Setter
             Property="Padding"
             Value="24 0 24 0"></Setter>
@@ -90,7 +90,7 @@
                             x:Name="templateRoot"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            
+                            Background="{TemplateBinding Background}"
                             SnapsToDevicePixels="True" />
                         <Border
                             x:Name="BackgroundRoot"
@@ -227,34 +227,38 @@
                                 Background="{DynamicResource MaterialDesignPaper}"
                                 Effect="{DynamicResource MaterialDesignShadowDepth1}"
                                 CornerRadius="2">
-
                                 <Border
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="2">
+
+                                    <Border
                                     Background="Transparent">
-                                    <ScrollViewer
+                                        <ScrollViewer
                                         x:Name="SubMenuScrollViewer"
                                         Style="{DynamicResource {ComponentResourceKey ResourceId=MenuScrollViewer, TypeInTargetAssembly={x:Type FrameworkElement}}}">
-                                        <Grid
+                                            <Grid
                                             RenderOptions.ClearTypeHint="Enabled"
                                             Margin="0 16">
-                                            <Canvas
+                                                <Canvas
                                                 HorizontalAlignment="Left"
                                                 Height="0"
                                                 VerticalAlignment="Top"
                                                 Width="0">
-                                                <Rectangle
+                                                    <Rectangle
                                                     x:Name="OpaqueRect"
-                                                    Fill="{Binding Background, ElementName=SubMenuBorder}"
+                                                    Fill="Transparent"
                                                     Height="{Binding ActualHeight, ElementName=SubMenuBorder}"
                                                     Width="{Binding ActualWidth, ElementName=SubMenuBorder}" />
-                                            </Canvas>
-                                            <ItemsPresenter
+                                                </Canvas>
+                                                <ItemsPresenter
                                                 x:Name="ItemsPresenter"
                                                 KeyboardNavigation.DirectionalNavigation="Cycle"
                                                 Grid.IsSharedSizeScope="True"
                                                 SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
                                                 KeyboardNavigation.TabNavigation="Cycle" />
-                                        </Grid>
-                                    </ScrollViewer>
+                                            </Grid>
+                                        </ScrollViewer>
+                                    </Border>
                                 </Border>
                             </Border>
                         </Popup>
@@ -310,7 +314,7 @@
                                 Value="16 0" />
                             <Setter
                                 Property="Height"
-                                Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Menu}}}" />
+                                Value="{Binding Path=(wpf:MenuAssist.TopLevelMenuItemHeight), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=MenuBase}}" />
                             <Setter
                                 TargetName="templateRoot"
                                 Property="CornerRadius"
@@ -460,6 +464,7 @@
         <Setter
             Property="UseLayoutRounding"
             Value="True" />
+        <Setter Property="wpf:MenuAssist.TopLevelMenuItemHeight" Value="48"/>
         <Setter
             Property="Template">
             <Setter.Value>
@@ -520,6 +525,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
     </Style>
 
 

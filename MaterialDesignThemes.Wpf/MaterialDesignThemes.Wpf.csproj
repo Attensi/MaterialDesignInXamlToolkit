@@ -18,4 +18,17 @@
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.8.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
+  <ItemGroup>
+    <Page Update="Themes\MaterialDesign3.NavigationBar.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\MaterialDesign3.NavigationDrawer.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\MaterialDesign3.NavigationRail.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
 </Project>

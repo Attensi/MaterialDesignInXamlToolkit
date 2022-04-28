@@ -385,6 +385,11 @@ namespace MaterialDesignThemes.Wpf
             {
                 if (++clickCount == 1)
                     DoActionCallback(messageQueueItem);
+
+                // Don't operate with eventWaitHandle if disposed/invalid
+                if (actionClickWaitHandle.SafeWaitHandle.IsInvalid || actionClickWaitHandle.SafeWaitHandle.IsClosed)
+                    return;
+
                 actionClickWaitHandle.Set();
             };
             snackbar.SetCurrentValue(Snackbar.MessageProperty, snackbarMessage);
