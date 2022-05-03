@@ -92,6 +92,7 @@
                     <materialDesign:Chip
                         Content="Example Chip"
                         IsDeletable="True"
+                        DeleteBackground="Red"
                         ToolTip="This is an example chip">
                     </materialDesign:Chip>
                 </smtx:XamlDisplay>

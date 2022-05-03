@@ -88,6 +88,7 @@
         <Setter Property="Background" Value="{DynamicResource MaterialDesignChipBackground}" />
         <Setter Property="IconBackground" Value="{DynamicResource PrimaryHueMidBrush}" />
         <Setter Property="IconForeground" Value="{DynamicResource PrimaryHueMidForegroundBrush}" />
+        <Setter Property="DeleteBackground" Value="#FFA6A6A6" />
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Margin" Value="4" />
         <Setter Property="Template">
@@ -136,6 +137,7 @@
                                         Grid.Column="1"/>
                         <Button Grid.Column="2" Visibility="{TemplateBinding IsDeletable, Converter={StaticResource BooleanToVisibilityConverter}}"
                                 x:Name="PART_DeleteButton"
+                                Background="{TemplateBinding DeleteBackground}"
                                 ToolTip="{TemplateBinding DeleteToolTip}"
                                 Margin="-6 0 8 0"
                                 VerticalAlignment="Center"
@@ -143,7 +145,7 @@
                             <Button.Template>
                                 <ControlTemplate>
                                     <Grid>
-                                        <Ellipse x:Name="Bg" Fill="#FFA6A6A6" Stroke="#FF009587" StrokeThickness="0" />
+                                        <Ellipse x:Name="Bg" Fill="{TemplateBinding Background}" Stroke="#FF009587" StrokeThickness="0" />
                                         <iconPacks:PackIconMaterial Kind="Close" Width="12" Height="12"
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center" />
