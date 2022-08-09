@@ -1,4 +1,4 @@
-# ![Alt text](web/images/MD4XAML64.png "Material Design In XAML Toolkit") Fork of [Material Design In XAML Toolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
+﻿# ![Alt text](web/images/MD4XAML64.png "Material Design In XAML Toolkit") Fork of [Material Design In XAML Toolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
 - Replaced the built-in icon pack with [MahApps.Metro.IconPacks](https://github.com/MahApps/MahApps.Metro.IconPacks)
 - Removed theming
 - Removed MaterialDesignColors

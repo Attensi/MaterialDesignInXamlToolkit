@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace MaterialDesignThemes.Wpf
 {
@@ -136,6 +137,17 @@ namespace MaterialDesignThemes.Wpf
             => element.SetValue(CellPaddingProperty, value);
         #endregion
 
+        #region AttachedProperty : SelectedCellBorderBrushProperty
+        public static readonly DependencyProperty SelectedCellBorderBrushProperty
+            = DependencyProperty.RegisterAttached("SelectedCellBorderBrush", typeof(Brush), typeof(DataGridAssist),
+                new PropertyMetadata(null));
+
+        public static Brush GetSelectedCellBorderBrush(DataGrid element)
+            => (Brush)element.GetValue(SelectedCellBorderBrushProperty);
+        public static void SetSelectedCellBorderBrush(DataGrid element, Brush value)
+            => element.SetValue(SelectedCellBorderBrushProperty, value);
+        #endregion
+
         #region AttachedProperty : ColumnHeaderPaddingProperty
         public static readonly DependencyProperty ColumnHeaderPaddingProperty
             = DependencyProperty.RegisterAttached("ColumnHeaderPadding", typeof(Thickness), typeof(DataGridAssist),
@@ -198,7 +210,7 @@ namespace MaterialDesignThemes.Wpf
         }
 
         /// <summary>
-        /// Allows editing of components inside of a datagrid cell with a single left click.
+        /// Allows editing of components inside of a data grid cell with a single left click.
         /// </summary>
         private static void AllowDirectEditWithoutFocus(object sender, MouseButtonEventArgs mouseArgs)
         {
@@ -208,7 +220,7 @@ namespace MaterialDesignThemes.Wpf
                 .OfType<DataGridCell>()
                 .FirstOrDefault();
 
-            // Readonly has to be handled as the passthrough ignores the
+            // Readonly has to be handled as the pass-through ignores the
             // cell and interacts directly with the content
             if (dataGridCell?.IsReadOnly ?? true)
             {

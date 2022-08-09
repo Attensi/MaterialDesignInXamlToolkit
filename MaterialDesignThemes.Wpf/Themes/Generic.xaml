@@ -33,6 +33,7 @@
     <!-- set up default styles for our custom Material Design in XAML Toolkit controls -->
     <Style TargetType="{x:Type local:Clock}" BasedOn="{StaticResource MaterialDesignClock}" />
     <Style TargetType="{x:Type local:Badged}" BasedOn="{StaticResource MaterialDesignBadge}" />
+    <Style TargetType="{x:Type local:Card}" BasedOn="{StaticResource MaterialDesignElevatedCard}" />
     <Style TargetType="{x:Type local:PopupBox}" BasedOn="{StaticResource MaterialDesignPopupBox}" />
     <Style TargetType="{x:Type local:TimePicker}" BasedOn="{StaticResource MaterialDesignTimePicker}" />
 
@@ -439,14 +440,14 @@
                             <MultiBinding Converter="{StaticResource ShadowEdgeConverter}">
                                 <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="ActualWidth"/>
                                 <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="ActualHeight"/>
-                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(local:ShadowAssist.ShadowDepth)" />
+                                <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(local:ElevationAssist.Elevation)" />
                                 <Binding RelativeSource="{RelativeSource TemplatedParent}" Path="(local:ShadowAssist.ShadowEdges)" />
                             </MultiBinding>
                         </Grid.OpacityMask>
                         <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(local:ShadowAssist.CacheMode)}">
                             <Border Background="{TemplateBinding Background}"
                                     CornerRadius="{TemplateBinding CornerRadius}"
-                                    Effect="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}">
+                                    Effect="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ElevationAssist.Elevation), Converter={x:Static converters:ShadowConverter.Instance}}">
                             </Border>
                         </AdornerDecorator>
                         <Border Background="{TemplateBinding Background}"
@@ -514,7 +515,7 @@
     <SolidColorBrush x:Key="BlackBackground" Color="Black" />
 
     <Style TargetType="{x:Type local:DrawerHost}">
-        <Setter Property="local:ShadowAssist.ShadowDepth" Value="Depth3" />
+        <Setter Property="local:ElevationAssist.Elevation" Value="Dp8" />
         <Setter Property="ClipToBounds" Value="True" />
         <Setter Property="OverlayBackground" Value="{StaticResource BlackBackground}" />
         <Setter Property="LeftDrawerBackground" Value="{DynamicResource MaterialDesignPaper}" />
@@ -832,7 +833,7 @@
                                             x:Name="LeftDrawerShadow">
                                         <Border.Style>
                                             <Style TargetType="Border">
-                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}"/>
+                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ElevationAssist.Elevation), Converter={x:Static converters:ShadowConverter.Instance}}"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding OpenMode, RelativeSource={RelativeSource TemplatedParent}}" Value="Standard">
                                                         <Setter Property="Effect" Value="{x:Null}"/>
@@ -870,7 +871,7 @@
                                             x:Name="RightDrawerShadow">
                                         <Border.Style>
                                             <Style TargetType="Border">
-                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}"/>
+                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ElevationAssist.Elevation), Converter={x:Static converters:ShadowConverter.Instance}}"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding OpenMode, RelativeSource={RelativeSource TemplatedParent}}" Value="Standard">
                                                         <Setter Property="Effect" Value="{x:Null}"/>
@@ -907,7 +908,7 @@
                                             x:Name="TopDrawerShadow">
                                         <Border.Style>
                                             <Style TargetType="Border">
-                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}"/>
+                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ElevationAssist.Elevation), Converter={x:Static converters:ShadowConverter.Instance}}"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding OpenMode, RelativeSource={RelativeSource TemplatedParent}}" Value="Standard">
                                                         <Setter Property="Effect" Value="{x:Null}"/>
@@ -944,7 +945,7 @@
                                             x:Name="BottomDrawerShadow">
                                         <Border.Style>
                                             <Style TargetType="Border">
-                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}"/>
+                                                <Setter Property="Effect" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ElevationAssist.Elevation), Converter={x:Static converters:ShadowConverter.Instance}}"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding OpenMode, RelativeSource={RelativeSource TemplatedParent}}" Value="Standard">
                                                         <Setter Property="Effect" Value="{x:Null}"/>

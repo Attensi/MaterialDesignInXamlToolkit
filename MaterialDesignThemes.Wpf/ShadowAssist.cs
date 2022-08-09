@@ -1,21 +1,23 @@
-using System;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 
 namespace MaterialDesignThemes.Wpf
 {
-
+    [Obsolete("Use Elevation instead")]
     public enum ShadowDepth
     {
+        [Obsolete("Use Elevation.Dp0 instead")]
         Depth0,
+        [Obsolete("Use Elevation.Dp2 instead")]
         Depth1,
+        [Obsolete("Use Elevation instead, consider Dp4 or Dp3")]
         Depth2,
+        [Obsolete("Use Elevation instead, consider Dp8 or Dp7")]
         Depth3,
+        [Obsolete("Use Elevation instead, consider Dp12 or Dp16")]
         Depth4,
+        [Obsolete("Use Elevation instead, consider Dp16 or Dp24")]
         Depth5
     }
 
@@ -30,32 +32,42 @@ namespace MaterialDesignThemes.Wpf
         All = Left | Top | Right | Bottom
     }
 
-    internal class ShadowLocalInfo
+    public static class ShadowAssist
     {
-        public ShadowLocalInfo(double standardOpacity)
-        {
-            StandardOpacity = standardOpacity;
-        }
-
-        public double StandardOpacity { get; }
-    }
-
-    public class ShadowAssist
-    {
-
         #region AttachedProperty : ShadowDepthProperty
+        [Obsolete("Use ElevationAssist.LevelProperty instead")]
         public static readonly DependencyProperty ShadowDepthProperty = DependencyProperty.RegisterAttached(
-            "ShadowDepth", typeof(ShadowDepth), typeof(ShadowAssist), new FrameworkPropertyMetadata(default(ShadowDepth), FrameworkPropertyMetadataOptions.AffectsRender));
+            "ShadowDepth",
+            typeof(ShadowDepth),
+            typeof(ShadowAssist),
+            new FrameworkPropertyMetadata(default(ShadowDepth), FrameworkPropertyMetadataOptions.AffectsRender, OnShadowDepthPropertyChanged));
 
-        public static void SetShadowDepth(DependencyObject element, ShadowDepth value)
+        [Obsolete]
+        private static void OnShadowDepthPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            element.SetValue(ShadowDepthProperty, value);
+            if (e.NewValue is ShadowDepth depth)
+            {
+                d.SetValue(ElevationAssist.ElevationProperty, GetElevation(depth));
+            }
         }
 
-        public static ShadowDepth GetShadowDepth(DependencyObject element)
+        [Obsolete("Use ElevationAssist.SetLevel instead")]
+        public static void SetShadowDepth(DependencyObject element, ShadowDepth value) => element.SetValue(ShadowDepthProperty, value);
+
+        [Obsolete("Use ElevationAssist.GetLevel instead")]
+        public static ShadowDepth GetShadowDepth(DependencyObject element) => (ShadowDepth)element.GetValue(ShadowDepthProperty);
+
+        [Obsolete("Only used for backwards compatibility")]
+        internal static Elevation GetElevation(ShadowDepth depth) => depth switch
         {
-            return (ShadowDepth)element.GetValue(ShadowDepthProperty);
-        }
+            ShadowDepth.Depth0 => Elevation.Dp0,
+            ShadowDepth.Depth1 => Elevation.Dp2,
+            ShadowDepth.Depth2 => Elevation.Dp4,
+            ShadowDepth.Depth3 => Elevation.Dp8,
+            ShadowDepth.Depth4 => Elevation.Dp12,
+            ShadowDepth.Depth5 => Elevation.Dp24,
+            _ => throw new ArgumentOutOfRangeException(nameof(depth), depth, null)
+        };
         #endregion
 
         #region AttachedProperty : LocalInfoPropertyKey
@@ -67,6 +79,13 @@ namespace MaterialDesignThemes.Wpf
 
         private static ShadowLocalInfo? GetLocalInfo(DependencyObject element)
             => (ShadowLocalInfo?)element.GetValue(LocalInfoPropertyKey.DependencyProperty);
+
+        private class ShadowLocalInfo
+        {
+            public ShadowLocalInfo(double standardOpacity) => StandardOpacity = standardOpacity;
+
+            public double StandardOpacity { get; }
+        }
         #endregion
 
         #region AttachedProperty : DarkenProperty
@@ -79,11 +98,12 @@ namespace MaterialDesignThemes.Wpf
             var uiElement = dependencyObject as UIElement;
             var dropShadowEffect = uiElement?.Effect as DropShadowEffect;
 
-
-            if (dropShadowEffect == null) return;
+            if (dropShadowEffect is null) return;
 
             if ((bool)dependencyPropertyChangedEventArgs.NewValue)
             {
+                dropShadowEffect.BeginAnimation(DropShadowEffect.OpacityProperty, null);
+
                 SetLocalInfo(dependencyObject, new ShadowLocalInfo(dropShadowEffect.Opacity));
 
                 TimeSpan time = GetShadowAnimationDuration(dependencyObject);
@@ -102,7 +122,7 @@ namespace MaterialDesignThemes.Wpf
             else
             {
                 var shadowLocalInfo = GetLocalInfo(dependencyObject);
-                if (shadowLocalInfo == null) return;
+                if (shadowLocalInfo is null) return;
 
                 TimeSpan time = GetShadowAnimationDuration(dependencyObject);
 

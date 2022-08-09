@@ -426,7 +426,7 @@
     </Style>
 
     <Style x:Key="MaterialDesignDatePickerCalendarPortrait" TargetType="{x:Type Calendar}" BasedOn="{StaticResource MaterialDesignCalendarPortrait}">
-        <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth4"/>
+        <Setter Property="wpf:ElevationAssist.Elevation" Value="Dp12"/>
         <Setter Property="Margin" Value="16 8 16 24"/>
     </Style>
     
@@ -591,7 +591,6 @@
 
     <Style x:Key="MaterialDesignFilledDatePicker" TargetType="{x:Type DatePicker}" BasedOn="{StaticResource MaterialDesignFloatingHintDatePicker}">
         <Setter Property="wpf:TextFieldAssist.HasFilledTextField" Value="True" />
-        <Setter Property="wpf:TextFieldAssist.RippleOnFocusEnabled" Value="True" />
         <Setter Property="wpf:TextFieldAssist.TextFieldCornerRadius" Value="4,4,0,0" />
         <Setter Property="wpf:TextFieldAssist.UnderlineCornerRadius" Value="0" />
     </Style>

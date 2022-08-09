@@ -42,7 +42,7 @@
                                 <VisualState x:Name="Disabled">
                                     <Storyboard>
                                         <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="HighlightBackground"/>
-                                        <DoubleAnimation Duration="0" To=".35" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="NormalText"/>
+                                        <DoubleAnimation Duration="0" To=".38" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="NormalText"/>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -116,22 +116,16 @@
                                  StrokeThickness="1" RadiusX="15" RadiusY="15" Height="30"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsFocused" Value="False">
+                        <Trigger Property="HasSelectedDays" Value="False">
                             <Setter TargetName="NormalText" Property="TextElement.Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}"/>
+                        </Trigger>
+                        <Trigger Property="IsInactive" Value="True">
+                            <Setter TargetName="NormalText" Property="Opacity" Value="0.56" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsInactive"
-                     Value="True">
-                <Setter Property="MinHeight"
-                        Value="0" />
-                <Setter Property="MaxHeight"
-                        Value="0" />
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="MaterialDesignCalendarDayButton" TargetType="{x:Type CalendarDayButton}">
@@ -233,11 +227,7 @@
                                         <DoubleAnimation Duration="0"
                                                          To="0"
                                                          Storyboard.TargetProperty="Opacity"
-                                                         Storyboard.TargetName="HighlightingBorder"/>
-                                        <DoubleAnimation Duration="0"
-                                                         To="0.38"
-                                                         Storyboard.TargetProperty="Opacity" 
-                                                         Storyboard.TargetName="NormalText" />
+                                                         Storyboard.TargetName="HighlightBackground"/>
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -273,22 +263,19 @@
                         <Trigger Property="IsSelected" Value="False">
                             <Setter TargetName="NormalText" Property="TextElement.Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Calendar}}}"/>
                         </Trigger>
+                        <Trigger Property="IsInactive" Value="True">
+                            <Setter TargetName="NormalText" Property="Opacity" Value="0.56" />
+                        </Trigger>
+                        <Trigger Property="IsBlackedOut" Value="True">
+                            <Setter TargetName="NormalText" Property="Opacity" Value="0.38" />
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsInactive"
-                     Value="True">
-                <Setter Property="MinHeight"
-                        Value="0" />
-                <Setter Property="MaxHeight"
-                        Value="0" />
-            </Trigger>
-            <Trigger Property="IsBlackedOut"
-                     Value="True">
-                <Setter Property="Cursor"
-                        Value="No" />
+            <Trigger Property="IsBlackedOut" Value="True">
+                <Setter Property="Cursor" Value="Arrow" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -329,7 +316,7 @@
                         </VisualStateManager.VisualStateGroups>
 
                         <wpf:Card UniformCornerRadius="2" Background="{TemplateBinding Background}" Padding="0 -1 0 0"
-                                  wpf:ShadowAssist.ShadowDepth="{TemplateBinding wpf:ShadowAssist.ShadowDepth}"
+                                  wpf:ElevationAssist.Elevation="{TemplateBinding wpf:ElevationAssist.Elevation}"
                                   ClipContent="True">
                   
                             <Grid RenderOptions.ClearTypeHint="Enabled">
@@ -522,8 +509,6 @@
                                           Grid.Column="1"
                                           Grid.ColumnSpan="3"
                                           Grid.Row="2"
-                                          HorizontalAlignment="Center"
-                                          VerticalAlignment="Top"
                                           Margin="6 -3 7 6"
                                           Visibility="Hidden">
                                     <Border x:Name="PART_YearViewCopy" RenderTransformOrigin="0, 0.5"
@@ -541,15 +526,15 @@
                                             <TranslateTransform X="0" />
                                         </Grid.RenderTransform>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
                                     </Grid>
                                 </Grid>
@@ -674,7 +659,7 @@
         <Setter Property="wpf:CalendarAssist.HeaderBackground" Value="{DynamicResource PrimaryHueMidBrush}"/>
         <Setter Property="wpf:CalendarAssist.HeaderForeground" Value="{DynamicResource PrimaryHueMidForegroundBrush}"/>
         <Setter Property="wpf:CalendarAssist.Orientation" Value="Vertical"/>
-        <Setter Property="wpf:ShadowAssist.ShadowDepth" Value="Depth0"/>
+        <Setter Property="wpf:ElevationAssist.Elevation" Value="Dp0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Calendar}">
@@ -687,7 +672,7 @@
                         Foreground="{TemplateBinding Foreground}"
                         wpf:CalendarAssist.IsHeaderVisible="{TemplateBinding wpf:CalendarAssist.IsHeaderVisible}"
                         wpf:CalendarAssist.Orientation="{TemplateBinding wpf:CalendarAssist.Orientation}"
-                        wpf:ShadowAssist.ShadowDepth="{TemplateBinding wpf:ShadowAssist.ShadowDepth}"
+                        wpf:ElevationAssist.Elevation="{TemplateBinding wpf:ElevationAssist.Elevation}"
                         wpf:CalendarAssist.HeaderBackground="{TemplateBinding wpf:CalendarAssist.HeaderBackground}"
                         wpf:CalendarAssist.HeaderForeground="{TemplateBinding wpf:CalendarAssist.HeaderForeground}"/>
                 </ControlTemplate>

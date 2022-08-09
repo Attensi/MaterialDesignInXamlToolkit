@@ -289,7 +289,7 @@
                                     <materialDesign:ColorZone
                                         Mode="SecondaryMid"
                                         CornerRadius="6"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                        materialDesign:ElevationAssist.Elevation="Dp2"
                                         Margin="2">
                                         <DockPanel LastChildFill="True">
                                             <Button
@@ -356,7 +356,7 @@
                                     <materialDesign:ColorZone
                                         Mode="Standard"
                                         CornerRadius="6"
-                                        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                                        materialDesign:ElevationAssist.Elevation="Dp2"
                                         Margin="2">
                                         <DockPanel LastChildFill="True">
                                             <Button

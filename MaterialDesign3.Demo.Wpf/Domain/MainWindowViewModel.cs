@@ -158,9 +158,8 @@ namespace MaterialDesign3Demo.Domain
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Toggles>(),
-                    DocumentationLink.StyleLink("ToggleButton"),
-                    DocumentationLink.StyleLink("CheckBox"),
-                    DocumentationLink.ApiLink<Toggles>()
+                    DocumentationLink.StyleLink("ToggleButton", true),
+                    DocumentationLink.StyleLink("CheckBox")
                 },
                 selectedIcon: PackIconMaterialKind.ToggleSwitch,
                 unselectedIcon: PackIconMaterialKind.ToggleSwitchOffOutline);
@@ -251,7 +250,7 @@ namespace MaterialDesign3Demo.Domain
                 new[]
                 {
                     DocumentationLink.DemoPageLink<Typography>(),
-                    DocumentationLink.StyleLink("TextBlock")
+                    DocumentationLink.StyleLink("TextBlock", true)
                 },
                 selectedIcon: PackIconMaterialKind.FormatSize,
                 unselectedIcon: PackIconMaterialKind.FormatTitle)
@@ -370,7 +369,7 @@ namespace MaterialDesign3Demo.Domain
                 new[]
                 {
                     DocumentationLink.DemoPageLink<NavigationRail>(),
-                    DocumentationLink.StyleLink("NavigaionRail"),
+                    DocumentationLink.StyleLink("NavigationRail", true),
                 },
                 selectedIcon: PackIconMaterialKind.NavigationVariant,
                 unselectedIcon: PackIconMaterialKind.NavigationVariantOutline)
@@ -384,7 +383,7 @@ namespace MaterialDesign3Demo.Domain
                 new[]
                 {
                     DocumentationLink.DemoPageLink<NavigationBar>(),
-                    DocumentationLink.StyleLink("NavigaionBar"),
+                    DocumentationLink.StyleLink("NavigationBar", true),
                 },
                 selectedIcon: PackIconMaterialKind.NavigationVariant,
                 unselectedIcon: PackIconMaterialKind.NavigationVariantOutline)
@@ -451,11 +450,13 @@ namespace MaterialDesign3Demo.Domain
                 unselectedIcon: PackIconMaterialKind.Transition);
 
             yield return new DemoItem(
-                "Shadows",
-                typeof(Shadows),
+                "Elevation",
+                typeof(Elevation),
                 new[]
                 {
-                    DocumentationLink.DemoPageLink<Shadows>(),
+                    DocumentationLink.DemoPageLink<Elevation>(),
+                    DocumentationLink.StyleLink("Shadows"),
+                    DocumentationLink.SpecsLink("https://material.io/design/environment/elevation.html", "Elevation")
                 },
                 selectedIcon: PackIconMaterialKind.BoxShadow,
                 unselectedIcon: PackIconMaterialKind.BoxShadow);
