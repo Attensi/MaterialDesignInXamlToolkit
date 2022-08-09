@@ -64,7 +64,8 @@
                 Grid.Column="0"
                 Grid.Row="1">
                 <materialDesign:DialogHost
-                    DialogClosing="Sample1_DialogHost_OnDialogClosing"                     DialogClosed="Sample1_DialogHost_OnDialogClosed">
+                    DialogClosing="Sample1_DialogHost_OnDialogClosing"
+                    DialogClosed="Sample1_DialogHost_OnDialogClosed">
                     <materialDesign:DialogHost.DialogContent>
                         <StackPanel Margin="16">
                             <TextBlock Text="Add a new fruit."/>

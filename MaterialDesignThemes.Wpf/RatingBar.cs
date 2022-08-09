@@ -47,16 +47,6 @@ namespace MaterialDesignThemes.Wpf
             Point p = Mouse.GetPosition(ratingBarButton);
             double percentSelected = Orientation == Orientation.Horizontal ? p.X / ratingBarButton.ActualWidth : p.Y / ratingBarButton.ActualHeight;
             return ratingBarButton.Value - 1 + percentSelected;
-                var value = Value;
-                if (value == parameter && AllowDeselect)
-                {
-                    Value = 0;
-                }
-                else
-                {
-                    Value = parameter;
-                }
-            }
         }
 
         public static readonly DependencyProperty MinProperty = DependencyProperty.Register(

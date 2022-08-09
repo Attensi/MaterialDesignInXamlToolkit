@@ -106,7 +106,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         Margin="0 0 16 -20">
-                        <materialDesign:PackIcon Kind="Bike" />
+                        <iconPacks:PackIconMaterial Kind="Bike" />
                     </Button>
                     <StackPanel Grid.Row="1" Margin="8 24 8 0" >
                         <TextBlock FontWeight="Bold">Outlined style</TextBlock>
@@ -124,14 +124,14 @@
                             Style="{StaticResource MaterialDesignToolButton}"
                             Width="30" Padding="2 0 2 0"
                             materialDesign:RippleAssist.IsCentered="True">
-                            <materialDesign:PackIcon Kind="ShareVariant" />
+                            <iconPacks:PackIconMaterial Kind="ShareVariant" />
                         </Button>
                         <Button
                             Style="{StaticResource MaterialDesignToolButton}"
                             Width="30"
                             Padding="2 0 2 0"
                             materialDesign:RippleAssist.IsCentered="True">
-                            <materialDesign:PackIcon Kind="Heart" />
+                            <iconPacks:PackIconMaterial Kind="Heart" />
                         </Button>
                         <materialDesign:PopupBox
                             Style="{StaticResource MaterialDesignToolPopupBox}"

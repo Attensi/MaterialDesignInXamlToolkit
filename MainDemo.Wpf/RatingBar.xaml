@@ -115,7 +115,7 @@
                     <materialDesign:RatingBar.ValueItemTemplate>
                         <DataTemplate DataType="system:Int32">
                             <Grid>
-                                <materialDesign:PackIcon
+                                <iconPacks:PackIconMaterial
                                     Kind="Heart"
                                     Height="24"
                                     Width="24"/>
@@ -174,7 +174,7 @@
                     <materialDesign:RatingBar.ValueItemTemplate>
                         <DataTemplate DataType="system:Int32">
                             <Grid>
-                                <materialDesign:PackIcon
+                                <iconPacks:PackIconMaterial
                                     Kind="Heart"
                                     Height="24"
                                     Width="24"/>
@@ -234,7 +234,7 @@
                     <materialDesign:RatingBar.ValueItemTemplate>
                         <DataTemplate DataType="system:Int32">
                             <Grid>
-                                <materialDesign:PackIcon
+                                <iconPacks:PackIconMaterial
                                     Kind="Heart"
                                     Height="24"
                                     Width="24"/>
