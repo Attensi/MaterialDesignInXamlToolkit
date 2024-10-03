@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:domain="clr-namespace:MaterialDesignDemo.Domain"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -61,8 +62,8 @@
                  Text="Customise On Content:" />
 
       <smtx:XamlDisplay UniqueKey="toggle_buttons_7">
-        <ToggleButton materialDesign:ToggleButtonAssist.OnContent="{materialDesign:PackIcon Kind=EmoticonHappy}"
-                      Content="{materialDesign:PackIcon Kind=EmoticonSad}"
+        <ToggleButton materialDesign:ToggleButtonAssist.OnContent="{iconPacks:Material Kind=EmoticonHappy}"
+                      Content="{iconPacks:Material Kind=EmoticonSad}"
                       Style="{StaticResource MaterialDesignActionToggleButton}"
                       ToolTip="MaterialDesignActionLightToggleButton" />
       </smtx:XamlDisplay>
@@ -73,17 +74,16 @@
                         VerticalAlignment="Center"
                         UniqueKey="toggle_buttons_8">
         <ToggleButton Style="{StaticResource MaterialDesignFlatToggleButton}" ToolTip="MaterialDesignFlatToggleButton">
-          <materialDesign:PackIcon Width="21"
-                                   Height="21"
-                                   Kind="Paperclip" />
+          <iconPacks:PackIconMaterial Width="21"
+                                      Height="21"
+                                      Kind="Paperclip" />
         </ToggleButton>
       </smtx:XamlDisplay>
 
       <smtx:XamlDisplay Margin="0,0,16,16"
                         VerticalAlignment="Center"
                         UniqueKey="toggle_buttons_9">
-        <ToggleButton Content="{materialDesign:PackIcon Kind=Heart,
-                                                        Size=21}"
+        <ToggleButton Content="{iconPacks:Material Kind=Heart, Width=21, Height=21}"
                       IsChecked="True"
                       Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                       ToolTip="MaterialDesignFlatPrimaryToggleButton" />
@@ -92,8 +92,7 @@
       <smtx:XamlDisplay Margin="0,0,16,16"
                         VerticalAlignment="Center"
                         UniqueKey="toggle_buttons_10">
-        <ToggleButton Content="{materialDesign:PackIcon Kind=Heart,
-                                                        Size=21}"
+        <ToggleButton Content="{iconPacks:Material Kind=Heart, Width=21, Height=21}"
                       IsEnabled="False"
                       Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                       ToolTip="MaterialDesignFlatPrimaryToggleButton" />
@@ -117,10 +116,10 @@
               <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
             </StackPanel>
           </ListBox.ToolTip>
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignLeft}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignCenter}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignRight}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignJustify}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignLeft}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignCenter}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignRight}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignJustify}" />
         </ListBox>
       </smtx:XamlDisplay>
 
@@ -136,10 +135,10 @@
               <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
             </StackPanel>
           </ListBox.ToolTip>
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignLeft}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignCenter}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignRight}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignJustify}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignLeft}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignCenter}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignRight}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignJustify}" />
         </ListBox>
       </smtx:XamlDisplay>
 
@@ -155,9 +154,9 @@
               <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
             </StackPanel>
           </ListBox.ToolTip>
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatBold}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatItalic}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatUnderline}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatBold}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatItalic}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatUnderline}" />
         </ListBox>
       </smtx:XamlDisplay>
     </StackPanel>
@@ -361,14 +360,14 @@
                         VerticalAlignment="Center"
                         UniqueKey="toggle_buttons_25">
         <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}" ToolTip="MaterialDesignSwitchToggleButton with Content and ToggleButtonAssist.OnContent">
-          <materialDesign:PackIcon Kind="Pin" RenderTransformOrigin=".5,.5">
-            <materialDesign:PackIcon.RenderTransform>
+          <iconPacks:PackIconMaterial Kind="Pin" RenderTransformOrigin=".5,.5">
+            <iconPacks:PackIconMaterial.RenderTransform>
               <RotateTransform Angle="45" />
-            </materialDesign:PackIcon.RenderTransform>
-          </materialDesign:PackIcon>
+            </iconPacks:PackIconMaterial.RenderTransform>
+          </iconPacks:PackIconMaterial>
 
           <materialDesign:ToggleButtonAssist.OnContent>
-            <materialDesign:PackIcon Kind="Pin" />
+            <iconPacks:PackIconMaterial Kind="Pin" />
           </materialDesign:ToggleButtonAssist.OnContent>
         </ToggleButton>
       </smtx:XamlDisplay>
@@ -392,8 +391,7 @@
       <smtx:XamlDisplay Margin="8,0,0,0"
                         VerticalAlignment="Center"
                         UniqueKey="toggle_buttons_27">
-        <ToggleButton Content="{materialDesign:PackIcon Kind=Heart,
-                                                        Size=21}"
+        <ToggleButton Content="{iconPacks:Material Kind=Heart, Width=21, Height=21}"
                       IsChecked="True"
                       Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                       ToolTip="MaterialDesignFlatPrimaryToggleButton" />
@@ -402,8 +400,7 @@
       <smtx:XamlDisplay Margin="8,0,0,0"
                         VerticalAlignment="Center"
                         UniqueKey="toggle_buttons_28">
-        <ToggleButton Content="{materialDesign:PackIcon Kind=Heart,
-                                                        Size=21}"
+        <ToggleButton Content="{iconPacks:Material Kind=Heart, Width=21, Height=21}"
                       IsEnabled="False"
                       Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
                       ToolTip="MaterialDesignFlatPrimaryToggleButton" />
@@ -426,10 +423,10 @@
               <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
             </StackPanel>
           </ListBox.ToolTip>
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignLeft}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignCenter}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignRight}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignJustify}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignLeft}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignCenter}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignRight}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignJustify}" />
         </ListBox>
       </smtx:XamlDisplay>
 
@@ -445,10 +442,10 @@
               <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
             </StackPanel>
           </ListBox.ToolTip>
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignLeft}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignCenter}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignRight}" />
-          <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatAlignJustify}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignLeft}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignCenter}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignRight}" />
+          <ListBoxItem Content="{iconPacks:Material Kind=FormatAlignJustify}" />
         </ListBox>
       </smtx:XamlDisplay>
     </StackPanel>
@@ -466,9 +463,9 @@
             <TextBlock Text="ListBoxAssist.IsToggle allows more natural toggle behaviour" />
           </StackPanel>
         </ListBox.ToolTip>
-        <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatBold}" />
-        <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatItalic}" />
-        <ListBoxItem Content="{materialDesign:PackIcon Kind=FormatUnderline}" />
+        <ListBoxItem Content="{iconPacks:Material Kind=FormatBold}" />
+        <ListBoxItem Content="{iconPacks:Material Kind=FormatItalic}" />
+        <ListBoxItem Content="{iconPacks:Material Kind=FormatUnderline}" />
       </ListBox>
     </smtx:XamlDisplay>
 
@@ -638,7 +635,7 @@
                            IsChecked="True"
                            Style="{StaticResource MaterialDesignTabRadioButton}">
                 <StackPanel>
-                  <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Star" />
+                  <iconPacks:PackIconMaterial HorizontalAlignment="Center" Kind="Star" />
                   <TextBlock Margin="0,4,0,0" Text="FIRST" />
                 </StackPanel>
               </RadioButton>
@@ -647,7 +644,7 @@
                            IsChecked="False"
                            Style="{StaticResource MaterialDesignTabRadioButton}">
                 <StackPanel>
-                  <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Heart" />
+                  <iconPacks:PackIconMaterial HorizontalAlignment="Center" Kind="Heart" />
                   <TextBlock Margin="0,4,0,0" Text="SECOND" />
                 </StackPanel>
               </RadioButton>
@@ -657,7 +654,7 @@
                            IsEnabled="False"
                            Style="{StaticResource MaterialDesignTabRadioButton}">
                 <StackPanel>
-                  <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Smiley" />
+                  <iconPacks:PackIconMaterial HorizontalAlignment="Center" Kind="Emoticon" />
                   <TextBlock Margin="0,4,0,0" Text="THIRD" />
                 </StackPanel>
               </RadioButton>
@@ -669,7 +666,7 @@
                            IsChecked="True"
                            Style="{StaticResource MaterialDesignTabRadioButton}">
                 <StackPanel Orientation="Horizontal">
-                  <materialDesign:PackIcon Kind="Star" />
+                  <iconPacks:PackIconMaterial Kind="Star" />
                   <TextBlock Margin="4,0,0,0" Text="FIRST" />
                 </StackPanel>
               </RadioButton>
@@ -678,7 +675,7 @@
                            IsChecked="False"
                            Style="{StaticResource MaterialDesignTabRadioButton}">
                 <StackPanel Orientation="Horizontal">
-                  <materialDesign:PackIcon Kind="Heart" />
+                  <iconPacks:PackIconMaterial Kind="Heart" />
                   <TextBlock Margin="4,0,0,0" Text="SECOND" />
                 </StackPanel>
               </RadioButton>
@@ -688,7 +685,7 @@
                            IsEnabled="False"
                            Style="{StaticResource MaterialDesignTabRadioButton}">
                 <StackPanel Orientation="Horizontal">
-                  <materialDesign:PackIcon Kind="Smiley" />
+                  <iconPacks:PackIconMaterial Kind="Emoticon" />
                   <TextBlock Margin="4,0,0,0" Text="THIRD" />
                 </StackPanel>
               </RadioButton>

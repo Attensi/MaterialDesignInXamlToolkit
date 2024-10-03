@@ -116,35 +116,6 @@ public class MainWindowViewModel : ViewModelBase
             throw new ArgumentNullException(nameof(snackbarMessageQueue));
 
         yield return new DemoItem(
-            "Palette",
-            typeof(PaletteSelector),
-            new[]
-            {
-                DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),
-                DocumentationLink.DemoPageLink<PaletteSelector>("Demo View"),
-                DocumentationLink.DemoPageLink<PaletteSelectorViewModel>("Demo View Model","Domain"),
-                DocumentationLink.ApiLink<PaletteHelper>()
-            })
-        {
-            HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Disabled
-        };
-
-        yield return new DemoItem(
-            "ColorTool",
-            typeof(ColorTool),
-            new[]
-            {
-                DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),
-                DocumentationLink.DemoPageLink<ColorTool>("Demo View"),
-                DocumentationLink.DemoPageLink<ColorToolViewModel>("Demo View Model","Domain"),
-                DocumentationLink.ApiLink<PaletteHelper>()
-            });
-
-        yield return new DemoItem(
             "Button",
             typeof(Buttons),
             new[]
@@ -266,22 +237,6 @@ public class MainWindowViewModel : ViewModelBase
         };
 
         yield return new DemoItem(
-            "Icons",
-            typeof(IconPack),
-            new[]
-            {
-                DocumentationLink.DemoPageLink<IconPack>("Demo View"),
-                DocumentationLink.DemoPageLink<IconPackViewModel>("Demo View Model", "Domain"),
-                DocumentationLink.ApiLink<PackIcon>()
-            },
-            new IconPackViewModel(snackbarMessageQueue))
-        {
-            //The icons view handles its own scrolling
-            HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Disabled,
-            VerticalScrollBarVisibilityRequirement = ScrollBarVisibility.Disabled
-        };
-
-        yield return new DemoItem(
             "ColorZone",
             typeof(ColorZones),
             new[]
@@ -383,20 +338,6 @@ public class MainWindowViewModel : ViewModelBase
             })
         {
             HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Disabled,
-        };
-
-        yield return new DemoItem(
-            "Dialog",
-            typeof(Dialogs),
-            new[]
-            {
-                DocumentationLink.WikiLink("Dialogs", "Dialogs"),
-                DocumentationLink.DemoPageLink<Dialogs>("Demo View"),
-                DocumentationLink.DemoPageLink<DialogsViewModel>("Demo View Model", "Domain"),
-                DocumentationLink.ApiLink<DialogHost>()
-            })
-        {
-            HorizontalScrollBarVisibilityRequirement = ScrollBarVisibility.Auto
         };
 
         yield return new DemoItem(

@@ -23,31 +23,10 @@ public partial class MainWindow
 
         DataContext = new MainWindowViewModel(MainSnackbar.MessageQueue!, app.StartupPage);
 
-        var paletteHelper = new PaletteHelper();
-        var theme = paletteHelper.GetTheme();
-
-        switch (app.InitialTheme)
-        {
-            case BaseTheme.Dark:
-                ModifyTheme(true);
-                break;
-            case BaseTheme.Light:
-                ModifyTheme(false);
-                break;
-        }
-
         if (app.InitialFlowDirection == FlowDirection.RightToLeft)
         {
             FlowDirectionToggleButton.IsChecked = true;
             FlowDirection = FlowDirection.RightToLeft;
-        }
-
-        DarkModeToggleButton.IsChecked = theme.GetBaseTheme() == BaseTheme.Dark;
-
-        if (paletteHelper.GetThemeManager() is { } themeManager)
-        {
-            themeManager.ThemeChanged += (_, e)
-                => DarkModeToggleButton.IsChecked = e.NewTheme?.GetBaseTheme() == BaseTheme.Dark;
         }
 
         Snackbar = MainSnackbar;
@@ -65,16 +44,6 @@ public partial class MainWindow
         }
 
         MenuToggleButton.IsChecked = false;
-    }
-
-    private async void MenuPopupButton_OnClick(object sender, RoutedEventArgs e)
-    {
-        var sampleMessageDialog = new SampleMessageDialog
-        {
-            Message = { Text = ((ButtonBase)sender).Content.ToString() }
-        };
-
-        await DialogHost.Show(sampleMessageDialog, "RootDialog");
     }
 
     private void OnCopy(object sender, ExecutedRoutedEventArgs e)
@@ -95,22 +64,10 @@ public partial class MainWindow
     private void MenuToggleButton_OnClick(object sender, RoutedEventArgs e)
         => DemoItemsSearchBox.Focus();
 
-    private void MenuDarkModeButton_Click(object sender, RoutedEventArgs e)
-        => ModifyTheme(DarkModeToggleButton.IsChecked == true);
-
     private void FlowDirectionButton_Click(object sender, RoutedEventArgs e)
         => FlowDirection = FlowDirectionToggleButton.IsChecked.GetValueOrDefault(false)
             ? FlowDirection.RightToLeft
             : FlowDirection.LeftToRight;
-
-    private static void ModifyTheme(bool isDarkTheme)
-    {
-        var paletteHelper = new PaletteHelper();
-        var theme = paletteHelper.GetTheme();
-
-        theme.SetBaseTheme(isDarkTheme ? BaseTheme.Dark : BaseTheme.Light);
-        paletteHelper.SetTheme(theme);
-    }
 
     private void OnSelectedItemChanged(object sender, DependencyPropertyChangedEventArgs e)
         => MainScrollViewer.ScrollToHome();

@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -40,7 +41,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
-              <materialDesign:PackIcon Kind="Bike" />
+              <iconPacks:PackIconMaterial Kind="Bike" />
             </Button>
             <StackPanel Grid.Row="1" Margin="8,24,8,0">
               <TextBlock FontWeight="Bold">Cycling</TextBlock>
@@ -56,13 +57,13 @@
                       Padding="2,0,2,0"
                       materialDesign:RippleAssist.IsCentered="True"
                       Style="{StaticResource MaterialDesignToolButton}">
-                <materialDesign:PackIcon Kind="ShareVariant" />
+                <iconPacks:PackIconMaterial Kind="ShareVariant" />
               </Button>
               <Button Width="30"
                       Padding="2,0,2,0"
                       materialDesign:RippleAssist.IsCentered="True"
                       Style="{StaticResource MaterialDesignToolButton}">
-                <materialDesign:PackIcon Kind="Heart" />
+                <iconPacks:PackIconMaterial Kind="Heart" />
               </Button>
               <materialDesign:PopupBox Padding="2,0,2,0" Style="{StaticResource MaterialDesignToolPopupBox}">
                 <StackPanel>
@@ -90,7 +91,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
-              <materialDesign:PackIcon Kind="Bike" />
+              <iconPacks:PackIconMaterial Kind="Bike" />
             </Button>
             <StackPanel Grid.Row="1" Margin="8,24,8,0">
               <TextBlock FontWeight="Bold">Outlined style</TextBlock>
@@ -106,13 +107,13 @@
                       Padding="2,0,2,0"
                       materialDesign:RippleAssist.IsCentered="True"
                       Style="{StaticResource MaterialDesignToolButton}">
-                <materialDesign:PackIcon Kind="ShareVariant" />
+                <iconPacks:PackIconMaterial Kind="ShareVariant" />
               </Button>
               <Button Width="30"
                       Padding="2,0,2,0"
                       materialDesign:RippleAssist.IsCentered="True"
                       Style="{StaticResource MaterialDesignToolButton}">
-                <materialDesign:PackIcon Kind="Heart" />
+                <iconPacks:PackIconMaterial Kind="Heart" />
               </Button>
               <materialDesign:PopupBox Padding="2,0,2,0" Style="{StaticResource MaterialDesignToolPopupBox}">
                 <StackPanel>
@@ -145,7 +146,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
-              <materialDesign:PackIcon Kind="ShareVariant" />
+              <iconPacks:PackIconMaterial Kind="ShareVariant" />
             </Button>
             <StackPanel Grid.Row="1" Margin="8,24,8,4">
               <TextBlock Margin="0"
@@ -176,10 +177,10 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
               </Grid.ColumnDefinitions>
-              <materialDesign:PackIcon Grid.Column="0"
-                                       Margin="8,4,4,4"
-                                       VerticalAlignment="Center"
-                                       Kind="Clock" />
+              <iconPacks:PackIconMaterial Grid.Column="0"
+                                          Margin="8,4,4,4"
+                                          VerticalAlignment="Center"
+                                          Kind="Clock" />
               <ListBox Grid.Column="1"
                        Margin="4,8,8,4"
                        SelectedIndex="0"
@@ -251,7 +252,7 @@
                         HorizontalAlignment="Right"
                         materialDesign:RippleAssist.IsCentered="True"
                         Style="{StaticResource MaterialDesignToolForegroundButton}">
-                  <materialDesign:PackIcon Kind="Phone" />
+                  <iconPacks:PackIconMaterial Kind="Phone" />
                 </Button>
                 <materialDesign:PopupBox Padding="2,0,2,0"
                                          HorizontalAlignment="Right"
@@ -322,7 +323,7 @@
                       HorizontalAlignment="Right"
                       materialDesign:RippleAssist.IsCentered="True"
                       Style="{StaticResource MaterialDesignToolForegroundButton}">
-                <materialDesign:PackIcon Kind="CheckAll" />
+                <iconPacks:PackIconMaterial Kind="CheckAll" />
               </Button>
             </StackPanel>
           </StackPanel>
@@ -368,11 +369,11 @@
                   <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <materialDesign:ColorZone VerticalAlignment="Stretch" Mode="PrimaryLight">
-                  <materialDesign:PackIcon Width="128"
-                                           Height="128"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center"
-                                           Kind="AccountCircle" />
+                  <iconPacks:PackIconMaterial Width="128"
+                                              Height="128"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Kind="AccountCircle" />
                 </materialDesign:ColorZone>
                 <StackPanel Grid.Row="1"
                             HorizontalAlignment="Center"
@@ -396,7 +397,7 @@
                     <Button HorizontalAlignment="Left"
                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
                             Style="{StaticResource MaterialDesignToolForegroundButton}">
-                      <materialDesign:PackIcon HorizontalAlignment="Right" Kind="ArrowLeft" />
+                      <iconPacks:PackIconMaterial HorizontalAlignment="Right" Kind="ArrowLeft" />
                     </Button>
                     <TextBlock Margin="8,0,0,0"
                                VerticalAlignment="Center"
@@ -464,7 +465,7 @@
                   <Button HorizontalAlignment="Left"
                           Command="{x:Static materialDesign:Flipper.FlipCommand}"
                           Style="{StaticResource MaterialDesignToolForegroundButton}">
-                    <materialDesign:PackIcon HorizontalAlignment="Right" Kind="ArrowLeft" />
+                    <iconPacks:PackIconMaterial HorizontalAlignment="Right" Kind="ArrowLeft" />
                   </Button>
                   <TextBlock Margin="8,0,0,0"
                              VerticalAlignment="Center"
@@ -514,71 +515,71 @@
 
       <StackPanel>
         <smtx:XamlDisplay Margin="4,4,0,0"
-                        VerticalContentAlignment="Top"
-                        UniqueKey="cards_10">
+                          VerticalContentAlignment="Top"
+                          UniqueKey="cards_10">
           <materialDesign:FlipperClassic IsFlippedChanged="Flipper_OnIsFlippedChanged">
             <materialDesign:FlipperClassic.FrontContent>
               <Button Width="184"
-                    Margin="8"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
-                    Content="Rounded Flipper"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+                      Margin="8"
+                      materialDesign:ButtonAssist.CornerRadius="8"
+                      Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
+                      Content="Rounded Flipper"
+                      Style="{StaticResource MaterialDesignFlatButton}" />
             </materialDesign:FlipperClassic.FrontContent>
             <materialDesign:FlipperClassic.BackContent>
               <Button Width="184"
-                    Margin="8"
-                    materialDesign:ButtonAssist.CornerRadius="8"
-                    Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
-                    Content="GO BACK"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+                      Margin="8"
+                      materialDesign:ButtonAssist.CornerRadius="8"
+                      Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
+                      Content="GO BACK"
+                      Style="{StaticResource MaterialDesignFlatButton}" />
             </materialDesign:FlipperClassic.BackContent>
           </materialDesign:FlipperClassic>
         </smtx:XamlDisplay>
 
         <smtx:XamlDisplay Margin="4,4,0,0"
-                        VerticalContentAlignment="Top"
-                        UniqueKey="cards_11">
+                          VerticalContentAlignment="Top"
+                          UniqueKey="cards_11">
           <materialDesign:FlipperClassic materialDesign:FlipperAssist.UniformCornerRadius="8"
-                                       IsFlippedChanged="Flipper_OnIsFlippedChanged"
-                                       Style="{StaticResource MaterialDesignCardFlipperClassic}">
+                                         IsFlippedChanged="Flipper_OnIsFlippedChanged"
+                                         Style="{StaticResource MaterialDesignCardFlipperClassic}">
             <materialDesign:FlipperClassic.FrontContent>
               <Button Width="184"
-                    Margin="8"
-                    Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
-                    Content="Rounded Card Flipper 1"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+                      Margin="8"
+                      Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
+                      Content="Rounded Card Flipper 1"
+                      Style="{StaticResource MaterialDesignFlatButton}" />
             </materialDesign:FlipperClassic.FrontContent>
             <materialDesign:FlipperClassic.BackContent>
               <Button Width="184"
-                    Margin="8"
-                    Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
-                    Content="GO BACK"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+                      Margin="8"
+                      Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
+                      Content="GO BACK"
+                      Style="{StaticResource MaterialDesignFlatButton}" />
             </materialDesign:FlipperClassic.BackContent>
           </materialDesign:FlipperClassic>
         </smtx:XamlDisplay>
 
         <smtx:XamlDisplay Margin="4,4,0,0"
-                        VerticalContentAlignment="Top"
-                        UniqueKey="cards_12">
+                          VerticalContentAlignment="Top"
+                          UniqueKey="cards_12">
           <materialDesign:FlipperClassic materialDesign:FlipperAssist.CardStyle="{StaticResource MaterialDesignOutlinedCard}"
-                                       materialDesign:FlipperAssist.UniformCornerRadius="8"
-                                       IsFlippedChanged="Flipper_OnIsFlippedChanged"
-                                       Style="{StaticResource MaterialDesignCardFlipperClassic}">
+                                         materialDesign:FlipperAssist.UniformCornerRadius="8"
+                                         IsFlippedChanged="Flipper_OnIsFlippedChanged"
+                                         Style="{StaticResource MaterialDesignCardFlipperClassic}">
             <materialDesign:FlipperClassic.FrontContent>
               <Button Width="184"
-                    Margin="8"
-                    Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
-                    Content="Rounded Card Flipper 2"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+                      Margin="8"
+                      Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
+                      Content="Rounded Card Flipper 2"
+                      Style="{StaticResource MaterialDesignFlatButton}" />
             </materialDesign:FlipperClassic.FrontContent>
             <materialDesign:FlipperClassic.BackContent>
               <Button Width="184"
-                    Margin="8"
-                    Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
-                    Content="GO BACK"
-                    Style="{StaticResource MaterialDesignFlatButton}" />
+                      Margin="8"
+                      Command="{x:Static materialDesign:FlipperClassic.FlipCommand}"
+                      Content="GO BACK"
+                      Style="{StaticResource MaterialDesignFlatButton}" />
             </materialDesign:FlipperClassic.BackContent>
           </materialDesign:FlipperClassic>
         </smtx:XamlDisplay>

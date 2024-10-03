@@ -1,5 +1,4 @@
-﻿using System.Windows.Media;
-using MaterialDesignDemo.Shared.Domain;
+﻿using MaterialDesignDemo.Shared.Domain;
 using MaterialDesignThemes.Wpf;
 
 namespace MaterialDesignDemo.Domain;
@@ -7,7 +6,6 @@ namespace MaterialDesignDemo.Domain;
 internal class SmartHintViewModel : ViewModelBase
 {
     public static Point DefaultFloatingOffset { get; } = new(0, 0);
-    public static FontFamily DefaultFontFamily = (FontFamily)new MaterialDesignFontExtension().ProvideValue(null!);
 
     private bool _floatHint = true;
     private FloatingHintHorizontalAlignment _selectedAlignment = FloatingHintHorizontalAlignment.Inherit;
@@ -29,7 +27,6 @@ internal class SmartHintViewModel : ViewModelBase
     private string? _prefixText = "pre";
     private string? _suffixText = "suf";
     private double _selectedFontSize = double.NaN;
-    private FontFamily? _selectedFontFamily = DefaultFontFamily;
     private bool _controlsEnabled = true;
     private bool _rippleOnFocus = false;
     private bool _textBoxAcceptsReturn = false;
@@ -54,7 +51,6 @@ internal class SmartHintViewModel : ViewModelBase
     public IEnumerable<VerticalAlignment> VerticalAlignmentOptions { get; } = Enum.GetValues(typeof(VerticalAlignment)).OfType<VerticalAlignment>();
     public IEnumerable<double> IconSizeOptions { get; } = [10.0, 15, 20, 30, 50, 75];
     public IEnumerable<double> FontSizeOptions { get; } = [double.NaN, 8, 12, 16, 20, 24, 28];
-    public IEnumerable<FontFamily> FontFamilyOptions { get; } = new FontFamily[] { DefaultFontFamily }.Concat(Fonts.SystemFontFamilies.OrderBy(f => f.Source));
     public IEnumerable<PrefixSuffixVisibility> PrefixSuffixVisibilityOptions { get; } = Enum.GetValues(typeof(PrefixSuffixVisibility)).OfType<PrefixSuffixVisibility>();
     public IEnumerable<PrefixSuffixHintBehavior> PrefixSuffixHintBehaviorOptions { get; } = Enum.GetValues(typeof(PrefixSuffixHintBehavior)).OfType<PrefixSuffixHintBehavior>();
     public IEnumerable<ScrollBarVisibility> ScrollBarVisibilityOptions { get; } = Enum.GetValues(typeof(ScrollBarVisibility)).OfType<ScrollBarVisibility>();
@@ -178,12 +174,6 @@ internal class SmartHintViewModel : ViewModelBase
     {
         get => _selectedFontSize;
         set => SetProperty(ref _selectedFontSize, value);
-    }
-
-    public FontFamily? SelectedFontFamily
-    {
-        get => _selectedFontFamily;
-        set => SetProperty(ref _selectedFontFamily, value);
     }
 
     public bool ControlsEnabled

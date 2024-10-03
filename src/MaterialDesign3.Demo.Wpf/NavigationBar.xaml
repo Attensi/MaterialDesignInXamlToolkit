@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:domain="clr-namespace:MaterialDesign3Demo.Domain"
-             xmlns:local="clr-namespace:MaterialDesign3Demo"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
@@ -26,9 +26,9 @@
                     Background="{DynamicResource SecondaryHueMidBrush}"
                     BorderThickness="0"
                     Foreground="{DynamicResource SecondaryHueMidBrushForeground}">
-              <materialDesign:PackIcon Width="24"
-                                       Height="24"
-                                       Kind="PencilOutline" />
+              <iconPacks:PackIconMaterial Width="24"
+                                          Height="24"
+                                          Kind="PencilOutline" />
             </Button>
 
             <Grid Height="80" Background="{DynamicResource MaterialDesignCardBackground}">
@@ -132,9 +132,9 @@
                     Background="#633B48"
                     BorderThickness="0"
                     Foreground="#FFD8E4">
-              <materialDesign:PackIcon Width="24"
-                                       Height="24"
-                                       Kind="PencilOutline" />
+              <iconPacks:PackIconMaterial Width="24"
+                                          Height="24"
+                                          Kind="PencilOutline" />
             </Button>
 
             <Grid Height="80" Background="#25232A">
@@ -177,9 +177,9 @@
                     Background="#633B48"
                     BorderThickness="0"
                     Foreground="#FFD8E4">
-              <materialDesign:PackIcon Width="36"
-                                       Height="36"
-                                       Kind="PencilOutline" />
+              <iconPacks:PackIconMaterial Width="36"
+                                          Height="36"
+                                          Kind="PencilOutline" />
             </Button>
 
             <Grid Height="160" Background="#25232A">

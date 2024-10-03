@@ -6,6 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              d:DataContext="{d:DesignInstance domain:ListsAndGridsViewModel}"
              d:DesignHeight="1080"
              d:DesignWidth="1920"
@@ -147,7 +148,7 @@
     </smtx:XamlDisplay>
 
     <StackPanel Orientation="Horizontal">
-      <materialDesign:PackIcon Margin="0,0,8,0" Kind="Information" />
+      <iconPacks:PackIconMaterial Margin="0,0,8,0" Kind="Information" />
       <TextBlock VerticalAlignment="Center" Text="DataGridComboBoxColumns are virtualized by default in the library." />
     </StackPanel>
 

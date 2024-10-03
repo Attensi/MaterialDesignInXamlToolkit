@@ -117,8 +117,6 @@
 
             <TextBlock Text=" • Notification will not time out if mouse is over it" />
 
-            <TextBlock Text=" • Can be paired with a DialogHost so timeout will pause if a active dialog" />
-
             <TextBlock Text=" • Duplicate within a short period will be discarded" />
 
             <TextBlock Text=" • A single message queue can be shared acros multiple Windows" />

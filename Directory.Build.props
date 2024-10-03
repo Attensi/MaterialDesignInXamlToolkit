@@ -6,14 +6,9 @@
     <LangVersion>12.0</LangVersion>
     <ErrorReport>prompt</ErrorReport>
 
-    <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>..\..\build\key.snk</AssemblyOriginatorKeyFile>
-    <DelaySign>false</DelaySign>
-
     <Nullable>enable</Nullable>
 
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
-    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 

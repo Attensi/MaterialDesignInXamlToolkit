@@ -242,3 +242,7 @@ $RECYCLE.BIN/
 .module-cache
 
 *.lutconfig
+
+#Libraries
+!libs/MahApps.Metro.IconPacks/MahApps.Metro.IconPacks.Core.dll
+!libs/MahApps.Metro.IconPacks/MahApps.Metro.IconPacks.Material.dll
