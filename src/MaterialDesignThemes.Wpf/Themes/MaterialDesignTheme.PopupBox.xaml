@@ -126,7 +126,7 @@
           <Grid>
             <ToggleButton x:Name="PART_Toggle"
                           Padding="0"
-                          VerticalAlignment="Center"
+                          VerticalAlignment="Stretch"
                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                           VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                           Content="{TemplateBinding ToggleContent}"
