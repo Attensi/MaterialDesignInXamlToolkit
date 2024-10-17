@@ -94,6 +94,7 @@
     <Setter Property="PopupUniformCornerRadius" Value="2" />
     <Setter Property="PopupVerticalOffset" Value="0" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="BorderThickness" Value="0" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type wpf:PopupBox}">
@@ -107,14 +108,16 @@
               <Setter Property="Template">
                 <Setter.Value>
                   <ControlTemplate TargetType="ToggleButton">
-                    <wpf:Ripple Padding="{TemplateBinding Padding}"
-                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                Content="{TemplateBinding Content}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"
-                                Focusable="False"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    <Border
+                      Background="{TemplateBinding Background}"
+                      BorderBrush="{TemplateBinding BorderBrush}"
+                      BorderThickness="{TemplateBinding BorderThickness}">
+                      <wpf:Ripple Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Focusable="False"
+                                  ClipToBounds="False"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
                   </ControlTemplate>
                 </Setter.Value>
               </Setter>
@@ -130,6 +133,9 @@
                           ContentTemplate="{TemplateBinding ToggleContentTemplate}"
                           ContentTemplateSelector="{TemplateBinding ToggleContentTemplateSelector}"
                           Cursor="Hand"
+                          Background="{TemplateBinding Background}"
+                          BorderBrush="{TemplateBinding BorderBrush}"
+                          BorderThickness="{TemplateBinding BorderThickness}"
                           IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsPopupOpen, Mode=TwoWay}"
                           IsTabStop="{TemplateBinding IsTabStop}"
                           Style="{StaticResource ToggleButtonStyle}"
