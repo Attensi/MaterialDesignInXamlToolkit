@@ -397,7 +397,7 @@
                        HorizontalAlignment="Stretch"
                        VerticalAlignment="Center"
                        HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                       CaretBrush="{TemplateBinding Foreground}"
+                       CaretBrush="{DynamicResource MaterialDesign.Brush.Primary}"
                        Focusable="{TemplateBinding IsEditable}"
                        IsReadOnly="{TemplateBinding IsReadOnly}"
                        MaxLength="{Binding Path=(wpf:ComboBoxAssist.MaxLength), RelativeSource={RelativeSource Mode=TemplatedParent}}"
