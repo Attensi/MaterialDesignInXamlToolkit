@@ -28,7 +28,6 @@
       <smtx:XamlDisplay Margin="24,0,0,5" UniqueKey="buttons_59">
         <materialDesign:RatingBar x:Name="CustomRatingBar"
                                   Max="3"
-                                  Orientation="Vertical"
                                   Value="2">
           <materialDesign:RatingBar.ValueItemTemplate>
             <DataTemplate DataType="system:Int32">
@@ -69,7 +68,6 @@
     <StackPanel Orientation="Horizontal">
       <smtx:XamlDisplay VerticalContentAlignment="Top" UniqueKey="previewRatingBar_1">
         <materialDesign:RatingBar x:Name="BasicRatingBarWithPreview"
-                                  IsPreviewValueEnabled="True"
                                   Value="3" />
       </smtx:XamlDisplay>
 
@@ -79,9 +77,7 @@
 
       <smtx:XamlDisplay Margin="24,0,0,5" UniqueKey="previewRatingBar_2">
         <materialDesign:RatingBar x:Name="CustomRatingBarWithPreview"
-                                  IsPreviewValueEnabled="True"
                                   Max="3"
-                                  Orientation="Vertical"
                                   Value="2">
           <materialDesign:RatingBar.ValueItemTemplate>
             <DataTemplate DataType="system:Int32">
@@ -113,7 +109,6 @@
                                   Max="5"
                                   Min="0"
                                   ValueChanged="BasicRatingBarFractional_ValueChanged"
-                                  ValueIncrements="0.25"
                                   Value="0" />
       </smtx:XamlDisplay>
 
@@ -125,8 +120,6 @@
         <materialDesign:RatingBar x:Name="CustomRatingBarFractional"
                                   Max="3"
                                   Min="0"
-                                  Orientation="Vertical"
-                                  ValueIncrements="0.25"
                                   Value="2">
           <materialDesign:RatingBar.ValueItemTemplate>
             <DataTemplate DataType="system:Int32">
@@ -155,10 +148,8 @@
     <StackPanel Orientation="Horizontal">
       <smtx:XamlDisplay VerticalContentAlignment="Top" UniqueKey="fractionalPreviewRatingBar_1">
         <materialDesign:RatingBar x:Name="BasicRatingBarFractionalPreview"
-                                  IsPreviewValueEnabled="True"
                                   Max="5"
                                   Min="0"
-                                  ValueIncrements="0.25"
                                   Value="0" />
       </smtx:XamlDisplay>
 
@@ -168,11 +159,8 @@
 
       <smtx:XamlDisplay Margin="24,0,0,5" UniqueKey="fractionalPreviewRatingBar_2">
         <materialDesign:RatingBar x:Name="CustomRatingBarFractionalPreview"
-                                  IsPreviewValueEnabled="True"
                                   Max="3"
                                   Min="0"
-                                  Orientation="Vertical"
-                                  ValueIncrements="0.25"
                                   Value="2">
           <materialDesign:RatingBar.ValueItemTemplate>
             <DataTemplate DataType="system:Int32">
@@ -202,11 +190,8 @@
     <StackPanel Orientation="Horizontal">
       <smtx:XamlDisplay VerticalContentAlignment="Top" UniqueKey="fractionalPreviewRatingBar_3">
         <materialDesign:RatingBar x:Name="BasicRatingBarFractionalPreview2"
-                                  InvertDirection="True"
-                                  IsPreviewValueEnabled="True"
                                   Max="5"
                                   Min="0"
-                                  ValueIncrements="0.25"
                                   Value="0" />
       </smtx:XamlDisplay>
 
@@ -216,12 +201,8 @@
 
       <smtx:XamlDisplay Margin="24,0,0,5" UniqueKey="fractionalPreviewRatingBar_4">
         <materialDesign:RatingBar x:Name="CustomRatingBarFractionalPreview2"
-                                  InvertDirection="True"
-                                  IsPreviewValueEnabled="True"
                                   Max="3"
                                   Min="0"
-                                  Orientation="Vertical"
-                                  ValueIncrements="0.25"
                                   Value="2">
           <materialDesign:RatingBar.ValueItemTemplate>
             <DataTemplate DataType="system:Int32">
