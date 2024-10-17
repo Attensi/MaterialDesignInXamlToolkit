@@ -5,6 +5,7 @@
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:materialDesignDemo="clr-namespace:MaterialDesignDemo"
+             xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
              xmlns:smtx="clr-namespace:ShowMeTheXAML;assembly=ShowMeTheXAML"
              xmlns:smtxAe="clr-namespace:ShowMeTheXAML.AvalonEdit;assembly=ShowMeTheXAML.AvalonEdit"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
@@ -23,6 +24,9 @@
 
         <ResourceDictionary Source="pack://application:,,,/ShowMeTheXAML.AvalonEdit;component/Themes/xamldisplayer.xaml" />
       </ResourceDictionary.MergedDictionaries>
+
+      <Color x:Key="MaterialDesignShadow">#000000</Color>
+      <SolidColorBrush x:Key="MaterialDesignShadowBrush" Color="{DynamicResource MaterialDesignShadow}" po:Freeze="True" />
 
       <Style TargetType="smtx:XamlDisplay" BasedOn="{StaticResource {x:Type smtx:XamlDisplay}}">
         <Style.Resources>
